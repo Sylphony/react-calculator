@@ -1,5 +1,5 @@
 // Number pressed
-export function press(num) {
+export function pressNum(num) {
     return {
         type: "PRESS_NUM",
         num
