@@ -6,6 +6,7 @@ class Calculator extends React.Component {
         return (
             <div className="row expanded">
                 <span>{ this.props.result }</span>
+                <span>{ this.props.numbers }</span>
                 <CalculatorButton num="7" click={ this.props.press } />
                 <CalculatorButton num="8" click={ this.props.press } />
                 <CalculatorButton num="9" click={ this.props.press } />

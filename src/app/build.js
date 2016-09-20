@@ -462,7 +462,7 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _CalculatorContainer = __webpack_require__(206);
+	var _CalculatorContainer = __webpack_require__(205);
 
 	var _CalculatorContainer2 = _interopRequireDefault(_CalculatorContainer);
 
@@ -23494,25 +23494,27 @@
 	    value: true
 	});
 	function calculator() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? { numbers: [] } : arguments[0];
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? { inputNum: "", calcNums: [] } : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
 	        case "PRESS_NUM":
-	            if (state.numbers.length < 2) {
-	                console.log(action);
-	                var numsArr = state.numbers;
-	                numsArr.push(action.num);
-	                return Object.assign({}, state, { numbers: numsArr });
-	            }
-
-	            return state;
+	            // Concatenate each number pressed
+	            var newInputNum = state.inputNum + action.num;
+	            return Object.assign({}, state, { inputNum: newInputNum });
 
 	        case "ADD":
-	            return Object.assign({}, state, { result: state.numbers[0] + state.numbers[1] });
+	        // If only one number is available
+	        // if (state.numbers.length < 2) {
+	        //     let 
+	        // }
+
+	        // else {
+	        //     return Object.assign({}, state, { result: state.numbers[0] + state.numbers[1] });
+	        // }
 
 	        case "SUBTRACT":
-	            return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
+	        //return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
 
 	        default:
 	            return state;
@@ -23523,44 +23525,6 @@
 
 /***/ },
 /* 205 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.press = press;
-	exports.add = add;
-	exports.subtract = subtract;
-	// Number pressed
-	function press(num) {
-	    return {
-	        type: "PRESS_NUM",
-	        num: num
-	    };
-	}
-
-	// Add two numbers
-	function add(num1, num2) {
-	    return {
-	        type: "ADD",
-	        num1: num1,
-	        num2: num2
-	    };
-	}
-
-	// Subtract two numbers
-	function subtract(num1, num2) {
-	    return {
-	        type: "SUBTRACT",
-	        num1: num1,
-	        num2: num2
-	    };
-	}
-
-/***/ },
-/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23579,11 +23543,11 @@
 
 	var _reactRedux = __webpack_require__(179);
 
-	var _Calculator = __webpack_require__(207);
+	var _Calculator = __webpack_require__(206);
 
 	var _Calculator2 = _interopRequireDefault(_Calculator);
 
-	var _actionCreators = __webpack_require__(205);
+	var _actionCreators = __webpack_require__(208);
 
 	var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -23635,7 +23599,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CalculatorContainer);
 
 /***/ },
-/* 207 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23650,7 +23614,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CalculatorButton = __webpack_require__(208);
+	var _CalculatorButton = __webpack_require__(207);
 
 	var _CalculatorButton2 = _interopRequireDefault(_CalculatorButton);
 
@@ -23682,6 +23646,11 @@
 	                    null,
 	                    this.props.result
 	                ),
+	                _react2.default.createElement(
+	                    "span",
+	                    null,
+	                    this.props.numbers
+	                ),
 	                _react2.default.createElement(_CalculatorButton2.default, { num: "7", click: this.props.press }),
 	                _react2.default.createElement(_CalculatorButton2.default, { num: "8", click: this.props.press }),
 	                _react2.default.createElement(_CalculatorButton2.default, { num: "9", click: this.props.press }),
@@ -23706,7 +23675,7 @@
 	exports.default = Calculator;
 
 /***/ },
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23748,7 +23717,9 @@
 
 	            return _react2.default.createElement(
 	                "button",
-	                { type: "button", className: "button", onClick: btnProp.click.bind(null, parseInt(btnProp.num)) },
+	                { type: "button",
+	                    className: "button",
+	                    onClick: btnProp.click.bind(null, btnProp.num) },
 	                btnProp.num
 	            );
 	        }
@@ -23758,6 +23729,44 @@
 	}(_react2.default.Component);
 
 	exports.default = CalculatorButton;
+
+/***/ },
+/* 208 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.press = press;
+	exports.add = add;
+	exports.subtract = subtract;
+	// Number pressed
+	function press(num) {
+	    return {
+	        type: "PRESS_NUM",
+	        num: num
+	    };
+	}
+
+	// Add two numbers
+	function add(num1, num2) {
+	    return {
+	        type: "ADD",
+	        num1: num1,
+	        num2: num2
+	    };
+	}
+
+	// Subtract two numbers
+	function subtract(num1, num2) {
+	    return {
+	        type: "SUBTRACT",
+	        num1: num1,
+	        num2: num2
+	    };
+	}
 
 /***/ }
 /******/ ]);

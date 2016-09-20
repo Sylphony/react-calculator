@@ -1,20 +1,22 @@
-function calculator(state = { numbers: [] }, action) {
+function calculator(state = { inputNum: "", calcNums: [] }, action) {
     switch (action.type) {
         case "PRESS_NUM":
-            if (state.numbers.length < 2) {
-                console.log(action);
-                let numsArr = state.numbers;
-                numsArr.push(action.num);
-                return Object.assign({}, state, { numbers: numsArr });
-            }
-
-            return state;
+            // Concatenate each number pressed
+            let newInputNum = state.inputNum + action.num;
+            return Object.assign({}, state, { inputNum: newInputNum });
 
         case "ADD":
-            return Object.assign({}, state, { result: state.numbers[0] + state.numbers[1] });
+            // If only one number is available
+            // if (state.numbers.length < 2) {
+            //     let 
+            // }
+
+            // else {
+            //     return Object.assign({}, state, { result: state.numbers[0] + state.numbers[1] });
+            // }
 
         case "SUBTRACT":
-            return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
+            //return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
 
         default:
             return state;
