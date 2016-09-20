@@ -15,7 +15,7 @@ class CalculatorContainer extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        num: state.num
+        num: state.calculator.num
     };
 }
 
