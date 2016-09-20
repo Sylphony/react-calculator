@@ -8,7 +8,7 @@ class CalculatorButton extends React.Component {
         };
 
         return (
-            <button type="button" className="button" onClick={ btnProp.click }>{ btnProp.num }</button>
+            <button type="button" className="button" onClick={ btnProp.click.bind(null, parseInt(btnProp.num)) }>{ btnProp.num }</button>
         );
     }
 }

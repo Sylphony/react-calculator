@@ -3,30 +3,22 @@ import CalculatorButton from "./CalculatorButton.jsx";
 
 class Calculator extends React.Component {
     render() {
-        console.log("Calculator render");
         return (
             <div className="row expanded">
-                <span>{ this.props.num }A</span>
-                {/*<CalculatorButton num="7" />
-                <CalculatorButton num="8" />
-                <CalculatorButton num="9" />
-                <CalculatorButton num="4" />
-                <CalculatorButton num="5" />
-                <CalculatorButton num="6" />
-                <CalculatorButton num="1" />
-                <CalculatorButton num="2" />
-                <CalculatorButton num="3" />
-                <CalculatorButton num="+" />*/}
-                <button type="button" className="button" onClick={ this.props.onAdd }>Add</button>
+                <span>{ this.props.result }</span>
+                <CalculatorButton num="7" click={ this.props.press } />
+                <CalculatorButton num="8" click={ this.props.press } />
+                <CalculatorButton num="9" click={ this.props.press } />
+                <CalculatorButton num="4" click={ this.props.press } />
+                <CalculatorButton num="5" click={ this.props.press } />
+                <CalculatorButton num="6" click={ this.props.press } />
+                <CalculatorButton num="1" click={ this.props.press } />
+                <CalculatorButton num="2" click={ this.props.press } />
+                <CalculatorButton num="3" click={ this.props.press } />
+                <button type="button" className="button" onClick={ this.props.add }>Add</button>
             </div>
         ); 
     }
 }
-
-Calculator.defaultProps = {
-    num: PropTypes.number,
-    onAdd: PropTypes.function,
-};
-
 
 export default Calculator;

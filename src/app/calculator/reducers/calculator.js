@@ -1,15 +1,24 @@
-import { add, subtract } from "./../actions/actionCreators";
-
-function calculator(state = {}, action) {
-    console.log("Inside reducer");
-    console.log(action);
+function calculator(state = { numbers: [] }, action) {
     switch (action.type) {
+        case "PRESS_NUM":
+            if (state.numbers.length < 2) {
+                console.log(action);
+                let numsArr = state.numbers;
+                numsArr.push(action.num);
+                return Object.assign({}, state, { numbers: numsArr });
+            }
+
+            return state;
+
         case "ADD":
-            return Object.assign({}, state, { num: action.num1 + action.num2 });
+            return Object.assign({}, state, { result: state.numbers[0] + state.numbers[1] });
+
+        case "SUBTRACT":
+            return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
+
         default:
             return state;
     }
-    // If it returns the new state, why isn't it updating in the component?
 }
 
 export default calculator;

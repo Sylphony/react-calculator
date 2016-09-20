@@ -8,14 +8,18 @@ class CalculatorContainer extends React.Component {
     render() {
         console.log("CalculatorContainer render");
         return (
-            <Calculator num={this.props.num} onAdd={ () => this.props.add(1, 5) } />
+            <Calculator result={ this.props.result }
+                        add={ this.props.add }
+                        subtract={ this.props.subtract }
+                        press={ this.props.press } />
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        num: state.calculator.num
+        numbers: state.calculator.numbers,
+        result: state.calculator.result
     };
 }
 
