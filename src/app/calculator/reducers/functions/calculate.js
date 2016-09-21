@@ -6,26 +6,26 @@ function calculate(state) {
     if (state.inputNum) {
         // If there isn't a result yet, make the typed number the result
         if (!result) {
-            result = parseInt(state.inputNum);
+            result = state.inputNum;
         }
 
         // Otherwise, perform the operation
         else {
             switch (operation) {
                 case "+":
-                    result = state.result + parseInt(state.inputNum);
+                    result = state.result + state.inputNum;
                     break;
 
                 case "-":
-                    result = state.result - parseInt(state.inputNum);
+                    result = state.result - state.inputNum;
                     break;
 
                 case "×":
-                    result = state.result * parseInt(state.inputNum);
+                    result = state.result * state.inputNum;
                     break;
 
                 case "÷":
-                    result = state.result / parseInt(state.inputNum);
+                    result = state.result / state.inputNum;
                     break;
             }
         }
