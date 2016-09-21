@@ -1,0 +1,4 @@
+// Get media query
+@function mq($size) {
+    @return map-get($mq, $size);
+}

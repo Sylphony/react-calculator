@@ -1,0 +1,73 @@
+// Calculator
+.calculator {
+    @extend %center-hv;
+
+    width:600px;
+    padding:10px;
+
+    background-color:lighten(map-get($colors, blue-sky), 20%);
+    box-shadow:
+        -3px 5px 5px -5px fade-out(darken(map-get($colors, blue-sky), 30%), 0.85),
+        3px 5px 5px -5px fade-out(darken(map-get($colors, blue-sky), 30%), 0.85),
+        0px 0px 5px 0 fade-out(darken(map-get($colors, blue-sky), 30%), 0.65);
+
+    // Screen
+    &__screen {
+        position:relative;
+
+        height:60px;
+        margin:5px 5px 10px;
+
+        background-color:fade-out(map-get($colors, white), 0.1);
+
+        // Inside display
+        &-display {
+            @extend %center-v;
+
+            right:10px;
+        }
+    }
+
+    // Buttons
+    &__buttons {
+
+    }
+
+    &__button {
+        float:left;
+
+        height:60px;
+        margin:5px;
+
+        // Left buttons container (numbers)
+        .calculator__buttons--left & {
+            width:calc((100% / 3) - 10px);
+        }
+
+        // Center buttons container (operations)
+        .calculator__buttons--center & {
+            width:calc((100% / 2) - 10px);
+        }
+
+        // Right buttons container (equal sign)
+        .calculator__buttons--right & {
+            width:calc(100% - 10px);
+        }
+
+        // Zero button
+        &--zero,
+        .calculator__buttons--left &--zero {
+            width:calc(100% - 10px);
+        }
+
+        // Operation buttons
+        &--operation {
+            height:calc((60px*2) + 10px);
+        }
+
+        // Equals button
+        &--equal {
+            height:calc((60px*4) + 30px);
+        }
+    }
+}

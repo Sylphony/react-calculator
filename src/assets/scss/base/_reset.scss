@@ -1,7 +1,18 @@
 html {
-    font-size:50px;
+    font-size:24px;
 }
 
 body {
-    background-color:pink;
+
+}
+
+.button {
+    margin-bottom:0;
+    
+    background-color:map-get($colors, blue-sky);
+}
+
+.column {
+    padding-left:0;
+    padding-right:0;
 }
