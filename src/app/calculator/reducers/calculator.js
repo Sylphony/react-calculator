@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     inputNum: "",
-    calcNums: []
+    calcNums: [],
+    screen: ""
 };
 
 function calculator(state = INITIAL_STATE, action) {
@@ -9,7 +10,8 @@ function calculator(state = INITIAL_STATE, action) {
             // Concatenate each number pressed
             let newInputNum = state.inputNum + action.num;
             return Object.assign({}, state, { 
-                inputNum: newInputNum 
+                inputNum: newInputNum,
+                screen: newInputNum
             });
 
         case "ADD":

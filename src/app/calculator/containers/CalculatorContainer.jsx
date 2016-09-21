@@ -6,23 +6,22 @@ import * as actionCreators from "./../actions/actionCreators";
 
 class CalculatorContainer extends React.Component {
     render() {
-        console.log("CalculatorContainer render");
+        const actions = {
+            add: this.props.add,
+            subtract: this.props.subtract,
+            pressNum: this.props.pressNum
+        };
+
         return (
-            <Calculator inputNum={ this.props.inputNum }
-                        calcNums={ this.props.calcNums }
-                        result={ this.props.result }
-                        add={ this.props.add }
-                        subtract={ this.props.subtract }
-                        pressNum={ this.props.pressNum } />
+            <Calculator calculator={ this.props.calculator }
+                        actions={ actions } />
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        inputNum: state.calculator.inputNum,
-        calcNums: state.calculator.calcNums,
-        result: state.calculator.result
+        calculator: state.calculator
     };
 }
 
