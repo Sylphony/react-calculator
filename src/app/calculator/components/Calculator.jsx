@@ -20,14 +20,14 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="2" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="3" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="0" click={ this.props.actions.pressNum } customClass="calculator__button--zero" />
-                        <CalculatorButton keyVal="C" click={ this.props.actions.pressAdd } />
+                        <CalculatorButton keyVal="C" click={ this.props.actions.pressClear } />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--center clearfix column small-4">
                         <CalculatorButton keyVal="+" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="-" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
-                        <CalculatorButton keyVal="x" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
-                        <CalculatorButton keyVal="/" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="×" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="÷" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--right clearfix column small-2">

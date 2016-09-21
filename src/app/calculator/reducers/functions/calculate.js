@@ -2,8 +2,6 @@ function calculate(state) {
     let result = state.result,
         operation = state.operation;
 
-    console.log(state);
-
     // At least a number must be inputted first 
     if (state.inputNum) {
         // If there isn't a result yet, make the typed number the result
@@ -22,11 +20,11 @@ function calculate(state) {
                     result = state.result - parseInt(state.inputNum);
                     break;
 
-                case "x":
+                case "×":
                     result = state.result * parseInt(state.inputNum);
                     break;
 
-                case "/":
+                case "÷":
                     result = state.result / parseInt(state.inputNum);
                     break;
             }

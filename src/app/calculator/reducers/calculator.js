@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 function calculator(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "PRESS_NUM":
-            // Concatenate each number pressed
+            // Concatenate each number pressed (also convert to number)
             let newInputNum = parseInt(state.inputNum + action.num);
 
             return {

@@ -7,13 +7,10 @@ import * as actionCreators from "./../actions/actionCreators";
 class CalculatorContainer extends React.Component {
     render() {
         const actions = {
+            pressNum: this.props.pressNum,
             pressOperation: this.props.pressOperation,
-            pressAdd: this.props.pressAdd,
-            pressSubtract: this.props.pressSubtract,
-            pressMultiply: this.props.pressMultiply,
-            pressDivide: this.props.pressDivide,
             pressEqual: this.props.pressEqual,
-            pressNum: this.props.pressNum
+            pressClear: this.props.pressClear
         };
 
         return (
