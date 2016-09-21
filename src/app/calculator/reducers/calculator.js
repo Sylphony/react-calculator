@@ -1,35 +1,56 @@
+import calculate from "./functions/calculate";
+
 const INITIAL_STATE = {
-    inputNum: "",
-    result: "",
-    screen: ""
+    inputNum: "",       // The input number
+    result: "",         // The calculated result so far
+    screen: ""          // What is seen on the screen
 };
 
 function calculator(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "PRESS_NUM":
             // Concatenate each number pressed
-            let newInputNum = state.inputNum + action.num;
+            let newInputNum = parseInt(state.inputNum + action.num);
+
             return {
                 ...state,
                 inputNum: newInputNum,
                 screen: newInputNum
             };
 
-        case "ADD":
-            // If there isn't a result yet, make it the result
-            // Otherwise, add the number
-            let result = (!state.result) ? parseInt(state.inputNum) : state.result + parseInt(state.inputNum);
+        case "PRESS_OPERATION":
+            // If there is no operation yet: Set it, save the current input as the result, and clear it
+            if (!state.operation) {
+                return {
+                    ...state,
+                    operation: action.operation,
+                    result: state.inputNum,
+                    inputNum: ""
+                };
+            }
 
-            // On return, set result, display on screen, empty the input
-            return {
-                ...state,
-                result: result,
-                screen: result,
-                inputNum: ""
-            };
+            // If the user clicks on an operation while they have not input the next number: Save the new operation
+            else if (!state.inputNum && action.operation !== state.operation) {
+                 return {
+                    ...state,
+                    operation: action.operation
+                };
+            }
 
-        //case "SUBTRACT":
-            //return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
+            // If there is an input number already
+            else if (state.inputNum && action.operation) {
+                // Calculate the previous operation first
+                const newState = calculate(state);
+
+                // Then store the new one
+                return {
+                    ...newState,
+                    operation: action.operation
+                };
+            }
+
+        // case "PRESS_EQUAL":
+        //     return calculate(state, "equal");
 
         default:
             return state;

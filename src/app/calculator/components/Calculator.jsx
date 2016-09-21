@@ -10,27 +10,28 @@ class Calculator extends React.Component {
                     <CalculatorScreen screen={ this.props.calculator.screen } />
 
                     <div className="calculator__buttons calculator__buttons--left clearfix column small-6">
-                        <CalculatorButton num="7" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="8" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="9" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="4" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="5" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="6" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="1" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="2" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="3" click={ this.props.actions.pressNum } />
-                        <CalculatorButton num="0" click={ this.props.actions.pressNum } customClass="calculator__button--zero" />
+                        <CalculatorButton keyVal="7" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="8" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="9" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="4" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="5" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="6" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="1" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="2" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="3" click={ this.props.actions.pressNum } />
+                        <CalculatorButton keyVal="0" click={ this.props.actions.pressNum } customClass="calculator__button--zero" />
+                        <CalculatorButton keyVal="C" click={ this.props.actions.pressAdd } />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--center clearfix column small-4">
-                        <CalculatorButton num="+" click={ this.props.actions.add } customClass="calculator__button--operation" />
-                        <CalculatorButton num="-" click={ this.props.actions.subtract } customClass="calculator__button--operation" />
-                        <CalculatorButton num="x" click={ this.props.actions.multiply } customClass="calculator__button--operation" />
-                        <CalculatorButton num="/" click={ this.props.actions.divide } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="+" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="-" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="x" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="/" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--right clearfix column small-2">
-                        <CalculatorButton num="=" click={ this.props.actions.equal } customClass="calculator__button--equal" />
+                       <CalculatorButton keyVal="=" click={ this.props.actions.pressEqual } customClass="calculator__button--equal" />
                     </div>
                 </div>
             </div>
