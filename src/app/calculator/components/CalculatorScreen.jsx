@@ -4,7 +4,7 @@ class CalculatorScreen extends React.Component {
     render() {
         return (
             <div className="calculator__screen">
-                <span>{ this.props.screen }</span>
+                <span className="calculator__screen-display">{ this.props.screen }</span>
             </div>
         );
     }

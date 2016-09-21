@@ -1,15 +1,21 @@
 import React from "react";
+import classNames from "classnames";
 
 class CalculatorButton extends React.Component {
     render() {
         let btnProp = {
             num: this.props.num,
-            click: this.props.click || null
+            click: this.props.click || null,
+            className: classNames(
+                "calculator__button",
+                "button",
+                this.props.customClass
+            )
         };
 
         return (
-            <button type="button" 
-                    className="button" 
+            <button className={ btnProp.className }
+                    type="button" 
                     onClick={ btnProp.click.bind(null, btnProp.num) }>    
                 { btnProp.num }
             </button>

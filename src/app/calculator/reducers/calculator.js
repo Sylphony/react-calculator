@@ -28,7 +28,7 @@ function calculator(state = INITIAL_STATE, action) {
                 inputNum: ""
             };
 
-        case "SUBTRACT":
+        //case "SUBTRACT":
             //return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
 
         default:
