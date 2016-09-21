@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     inputNum: "",
-    calcNums: [],
+    result: "",
     screen: ""
 };
 
@@ -9,27 +9,24 @@ function calculator(state = INITIAL_STATE, action) {
         case "PRESS_NUM":
             // Concatenate each number pressed
             let newInputNum = state.inputNum + action.num;
-            return Object.assign({}, state, { 
+            return {
+                ...state,
                 inputNum: newInputNum,
                 screen: newInputNum
-            });
+            };
 
         case "ADD":
-            // If only one number is available...
-            // How should I push it to the array without push?
-            if (state.numbers.length < 2) {
-                return Object.assign({}, state, {
-                    calcNums: [
-                        // state.calcNums.slice(0, 1)
-                    ]
-                });
-            }
+            // If there isn't a result yet, make it the result
+            // Otherwise, add the number
+            let result = (!state.result) ? parseInt(state.inputNum) : state.result + parseInt(state.inputNum);
 
-            else {
-                return Object.assign({}, state, { 
-                    result: state.numbers[0] + state.numbers[1] 
-                });
-            }
+            // On return, set result, display on screen, empty the input
+            return {
+                ...state,
+                result: result,
+                screen: result,
+                inputNum: ""
+            };
 
         case "SUBTRACT":
             //return Object.assign({}, state, { result: state.numbers[0] - state.numbers[1] });
