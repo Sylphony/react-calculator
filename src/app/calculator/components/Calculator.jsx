@@ -20,7 +20,7 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="2" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="3" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="0" click={ this.props.actions.pressNum } customClass="calculator__button--zero" />
-                        <CalculatorButton keyVal="C" click={ this.props.actions.pressClear } />
+                        <CalculatorButton keyVal="." click={ this.props.actions.pressDecimal } />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--center clearfix column small-4">
@@ -29,6 +29,7 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="×" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="÷" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="±" click={ this.props.actions.pressToggleSign } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="C" click={ this.props.actions.pressClear } customClass="calculator__button--operation" />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--right clearfix column small-2">

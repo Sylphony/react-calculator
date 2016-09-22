@@ -1,31 +1,30 @@
 function calculate(state) {
-    let result = state.result,
-        operation = state.operation;
+    let [result, inputNum, operation] = [parseFloat(state.result), parseFloat(state.inputNum), state.operation];
 
     // At least a number must be inputted first 
-    if (state.inputNum) {
+    if (inputNum) {
         // If there isn't a result yet, make the typed number the result
         if (!result) {
-            result = state.inputNum;
+            result = inputNum;
         }
 
         // Otherwise, perform the operation
         else {
             switch (operation) {
                 case "+":
-                    result = state.result + state.inputNum;
+                    result = result + inputNum;
                     break;
 
                 case "-":
-                    result = state.result - state.inputNum;
+                    result = result - inputNum;
                     break;
 
                 case "×":
-                    result = state.result * state.inputNum;
+                    result = result * inputNum;
                     break;
 
                 case "÷":
-                    result = state.result / state.inputNum;
+                    result = result / inputNum;
                     break;
             }
         }

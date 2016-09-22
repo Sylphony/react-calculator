@@ -6,6 +6,13 @@ export function pressNum(num) {
     };
 }
 
+// The decimal key is pressed
+export function pressDecimal() {
+    return {
+        type: "PRESS_DECIMAL"
+    };
+}
+
 // An operation key is pressed
 export function pressOperation(operation) {
     return {

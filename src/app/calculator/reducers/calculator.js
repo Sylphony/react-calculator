@@ -1,24 +1,71 @@
 import calculate from "./functions/calculate";
 
 const INITIAL_STATE = {
-    inputNum: "",       // The input number
-    result: "",         // The calculated result so far
+    result: 0,          // The calculated result so far
+    inputNum: "",       // The input number used for logic
     screen: ""          // What is seen on the screen
 };
 
 // Calculator reducer
 function calculator(state = INITIAL_STATE, action) {
-
     switch (action.type) {
         case "PRESS_NUM": {
-            // Concatenate each number pressed (also convert to number)
-            let newInputNum = state.inputNum + action.num;
-
             return {
                 ...state,
-                inputNum: parseInt(newInputNum),
-                screen: newInputNum
+                inputNum: state.inputNum + action.num,
+                screen: state.inputNum + action.num
             };
+        }
+
+        case "PRESS_DECIMAL": {
+            // Test the number if it has a decimal point
+            // If the user has not typed anything yet, use the last computed result
+            let hasDecimal = (/\./).test(state.inputNum || state.result);
+
+            // If the screen does not show a decimal yet, then add it
+            if (!hasDecimal) {
+                return {
+                    ...state,
+                    inputNum: (state.result) ? (state.result + ".") : (state.inputNum + "."),
+                    screen: (state.result) ? (state.result + ".") : (state.inputNum + "."),
+                };
+            }
+
+            return state;
+        }
+
+        case "PRESS_TOGGLE_SIGN": {
+            let theNum = parseFloat(state.inputNum) || state.result;
+
+            // Test the number if it has a negative sign
+            // If the user has not typed anything yet, use the last computed result
+            let hasNegative = (/\-/).test((state.inputNum) || state.result.toString());
+
+            // For non-zero numbers only (0 does not have a "negative")
+            if (theNum !== 0) {
+                // If there is no operation set, use the last computed result
+                if (!state.operation) {
+                    return {
+                        ...state,
+                        result: -(state.result),
+                        inputNum: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1),
+                        screen: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1)
+                    };
+                }
+
+                // Otherwise, take the current input number instead
+                else {
+                    return {
+                        ...state,
+                        result: -(state.result),
+                        inputNum: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1),
+                        screen: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1)
+                    };
+                }
+            }
+
+            // Return original state if zero
+            return state;
         }
 
         case "PRESS_OPERATION": {
@@ -27,13 +74,13 @@ function calculator(state = INITIAL_STATE, action) {
                 return {
                     ...state,
                     operation: action.operation,
-                    result: state.inputNum,
+                    result: parseFloat(state.inputNum),
                     inputNum: ""
                 };
             }
 
             // If the user clicks on an operation while they have not input the next number: Save the new operation
-            else if (!state.inputNum && action.operation !== state.operation) {
+            else if (!state.inputNum && (action.operation !== state.operation)) {
                  return {
                     ...state,
                     operation: action.operation
@@ -54,7 +101,10 @@ function calculator(state = INITIAL_STATE, action) {
         }
 
         case "PRESS_EQUAL": {
-            return calculate(state);
+            return {
+                ...calculate(state),
+                operation: null
+            };
         }
 
         case "PRESS_CLEAR": {
@@ -63,20 +113,6 @@ function calculator(state = INITIAL_STATE, action) {
                 ...INITIAL_STATE
             };
         }
-
-        // case "PRESS_TOGGLE_SIGN": {
-        //     let newInputNum = -1 * state.inputNum;
-        //     let newScreenDisp = (newInputNum <= 0) ? ("-" + state.screen) : state.screen.slice(1);
-
-        //     console.log("New input num: ", newInputNum);
-        //     console.log("New screenDisp: ", newScreenDisp);
-
-        //     return {
-        //         ...state,
-        //         inputNum: newInputNum,
-        //         screen: newScreenDisp
-        //     };
-        // }
 
         default: {
             return state;
