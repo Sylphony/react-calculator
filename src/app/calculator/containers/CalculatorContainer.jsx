@@ -16,20 +16,24 @@ class CalculatorContainer extends React.Component {
         };
 
         return (
-            <Calculator calculatorInput={ this.props.calculatorInput }
-                        calculatorResult={ this.props.calculatorResult }
+            <Calculator calculator={ this.props.calculator }
                         actions={ actions } />
         );
     }
 }
 
+/**
+ * Map state reducers to props.
+ */
 function mapStateToProps(state) {
     return {
-        calculatorInput: state.calculatorInput,
-        calculatorResult: state.calculatorResult
+        calculator: state.calculator
     };
 }
 
+/**
+ * Map dispatch events to props.
+ */
 function mapDispatchToProps(dispatch) {
     // Bind all action creators to dispatch
     return bindActionCreators(actionCreators, dispatch);

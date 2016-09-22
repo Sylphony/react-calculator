@@ -3,14 +3,12 @@
 
 import { combineReducers } from "redux";
 
-import calculatorInput from "./calculatorInput";
-import calculatorResult from "./calculatorResult";
+import calculator from "./calculator";
 
 
 const allReducers = combineReducers({
     /* The reducers here */
-    calculatorInput,
-    calculatorResult
+    calculator
 });
 
 export default allReducers;

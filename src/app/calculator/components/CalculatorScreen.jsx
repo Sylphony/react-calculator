@@ -8,7 +8,7 @@ class CalculatorScreen extends React.Component {
                 "calculator__screen-display",
                 "calculator__screen-display--input",
                 {
-                    "hide": !this.props.calculatorInput.screenShow
+                    "hide": this.props.calculator.screen !== "input"
                 }
             ),
 
@@ -16,15 +16,15 @@ class CalculatorScreen extends React.Component {
                 "calculator__screen-display",
                 "calculator__screen-display--result",
                 {
-                    "hide": !this.props.calculatorResult.screenShow
+                    "hide": this.props.calculator.screen !== "result"
                 }
             )
         ];
 
         return (
             <div className="calculator__screen">
-                <span className={ inputDisplayClasses }>{ this.props.calculatorInput.inputNum }</span>
-                <span className={ resultDisplayClasses }>{ this.props.calculatorResult.result }</span>
+                <span className={ inputDisplayClasses }>{ this.props.calculator.inputNum }</span>
+                <span className={ resultDisplayClasses }>{ this.props.calculator.result }</span>
             </div>
         );
     }
