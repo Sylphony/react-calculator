@@ -47,6 +47,11 @@
         // Center buttons container (operations)
         .calculator__buttons--center & {
             width:calc((100% / 2) - 10px);
+
+             // Take the full width
+            &--full {
+                width:calc(100% - 10px);
+            }
         }
 
         // Right buttons container (equal sign)
@@ -69,5 +74,6 @@
         &--equal {
             height:calc((60px*4) + 30px);
         }
+
     }
 }

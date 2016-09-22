@@ -6,6 +6,13 @@ export function pressNum(num) {
     };
 }
 
+// The backspace key is pressed
+export function pressBackspace() {
+    return {
+        type: "PRESS_BACKSPACE"
+    };
+}
+
 // The decimal key is pressed
 export function pressDecimal() {
     return {

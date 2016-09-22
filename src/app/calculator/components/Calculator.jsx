@@ -19,8 +19,9 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="1" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="2" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="3" click={ this.props.actions.pressNum } />
-                        <CalculatorButton keyVal="0" click={ this.props.actions.pressNum } customClass="calculator__button--zero" />
+                        <CalculatorButton keyVal="0" click={ this.props.actions.pressNum } />
                         <CalculatorButton keyVal="." click={ this.props.actions.pressDecimal } />
+                        <CalculatorButton keyVal="±" click={ this.props.actions.pressToggleSign } />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--center clearfix column small-4">
@@ -28,8 +29,8 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="-" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="×" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="÷" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
-                        <CalculatorButton keyVal="±" click={ this.props.actions.pressToggleSign } customClass="calculator__button--operation" />
-                        <CalculatorButton keyVal="C" click={ this.props.actions.pressClear } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="←" click={ this.props.actions.pressBackspace } customClass="calculator__button--operation calculator__button--full" />
+                        <CalculatorButton keyVal="C" click={ this.props.actions.pressClear } customClass="calculator__button--operation calculator__button--full" />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--right clearfix column small-2">

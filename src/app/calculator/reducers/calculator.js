@@ -32,6 +32,18 @@ function calculator(state = INITIAL_STATE, action) {
                 screen: "input"
             };
 
+        case "PRESS_BACKSPACE":
+            // Only allow backspacing on current input
+            if (!state.onNextNum) {
+                return {
+                    ...state,
+                    inputNum: state.inputNum.slice(0, state.inputNum.length-1),
+                    screen: "input"
+                };
+            }
+
+            return state;
+
 
         case "PRESS_DECIMAL": 
             let hasDecimal = (/\./).test(state.inputNum);
@@ -147,17 +159,15 @@ function calculator(state = INITIAL_STATE, action) {
             return state;
 
 
-        case "PRESS_CLEAR": {
+        case "PRESS_CLEAR":
             return {
                 ...state,
                 ...INITIAL_STATE
             };
-        }
 
 
-        default: {
+        default:
             return state;
-        }
     }
 }
 

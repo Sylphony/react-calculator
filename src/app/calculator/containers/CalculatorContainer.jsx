@@ -8,11 +8,12 @@ class CalculatorContainer extends React.Component {
     render() {
         const actions = {
             pressNum: this.props.pressNum,
+            pressBackspace: this.props.pressBackspace,
             pressDecimal: this.props.pressDecimal,
+            pressToggleSign: this.props.pressToggleSign,
             pressOperation: this.props.pressOperation,
             pressEqual: this.props.pressEqual,
-            pressClear: this.props.pressClear,
-            pressToggleSign: this.props.pressToggleSign
+            pressClear: this.props.pressClear
         };
 
         return (
