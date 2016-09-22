@@ -5,7 +5,7 @@ class CalculatorButton extends React.Component {
     render() {
         let btnProp = {
             keyVal: this.props.keyVal,
-            click: this.props.click || null,
+            click: this.props.click || (() => {}),
             className: classNames(
                 "calculator__button",
                 "button",

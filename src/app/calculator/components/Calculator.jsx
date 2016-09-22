@@ -28,6 +28,7 @@ class Calculator extends React.Component {
                         <CalculatorButton keyVal="-" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="×" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
                         <CalculatorButton keyVal="÷" click={ this.props.actions.pressOperation } customClass="calculator__button--operation" />
+                        <CalculatorButton keyVal="±" click={ this.props.actions.pressToggleSign } customClass="calculator__button--operation" />
                     </div>
 
                     <div className="calculator__buttons calculator__buttons--right clearfix column small-2">

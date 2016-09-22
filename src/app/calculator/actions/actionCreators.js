@@ -14,16 +14,23 @@ export function pressOperation(operation) {
     };
 };
 
-// Calculate the result
+// Equal button is pressed
 export function pressEqual() {
     return {
         type: "PRESS_EQUAL"
     };
 }
 
-// Clear the result
+// Clear button is pressed
 export function pressClear() {
     return {
         type: "PRESS_CLEAR"
+    };
+}
+
+// Sign toggle button is pressed
+export function pressToggleSign() {
+    return {
+        type: "PRESS_TOGGLE_SIGN"
     };
 }
