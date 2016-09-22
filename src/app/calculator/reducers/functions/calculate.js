@@ -30,13 +30,8 @@ function calculate(state) {
         }
     }
 
-    // On return, set result, display on screen, empty the input
-    return {
-        ...state,
-        result: result,
-        screen: result,
-        inputNum: ""
-    };
+    // Return final result
+    return result;
 }
 
 export default calculate;

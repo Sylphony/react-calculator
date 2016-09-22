@@ -16,7 +16,8 @@ class CalculatorContainer extends React.Component {
         };
 
         return (
-            <Calculator calculator={ this.props.calculator }
+            <Calculator calculatorInput={ this.props.calculatorInput }
+                        calculatorResult={ this.props.calculatorResult }
                         actions={ actions } />
         );
     }
@@ -24,7 +25,8 @@ class CalculatorContainer extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        calculator: state.calculator
+        calculatorInput: state.calculatorInput,
+        calculatorResult: state.calculatorResult
     };
 }
 

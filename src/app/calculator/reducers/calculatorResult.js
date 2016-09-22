@@ -1,19 +1,18 @@
 import calculate from "./functions/calculate";
 
 const INITIAL_STATE = {
+    inputNum: "",
     result: 0,          // The calculated result so far
-    inputNum: "",       // The input number used for logic
-    screen: ""          // What is seen on the screen
+    screenShow: false   
 };
 
-// Calculator reducer
-function calculator(state = INITIAL_STATE, action) {
+// Calculator result reducer
+function calculatorResult(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "PRESS_NUM": {
             return {
                 ...state,
-                inputNum: state.inputNum + action.num,
-                screen: state.inputNum + action.num
+                inputNum: parseFloat(state.inputNum.toString() + action.num)
             };
         }
 
@@ -33,6 +32,7 @@ function calculator(state = INITIAL_STATE, action) {
 
             return state;
         }
+
 
         case "PRESS_TOGGLE_SIGN": {
             let theNum = parseFloat(state.inputNum) || state.result;
@@ -68,6 +68,7 @@ function calculator(state = INITIAL_STATE, action) {
             return state;
         }
 
+
         case "PRESS_OPERATION": {
             // If there is no operation yet: Set it, save the current input as the result, and clear it
             if (!state.operation) {
@@ -100,12 +101,17 @@ function calculator(state = INITIAL_STATE, action) {
             }
         }
 
+
         case "PRESS_EQUAL": {
-            return {
-                ...calculate(state),
-                operation: null
-            };
+            if (state.operation) {
+                return {
+                    ...calculate(state)
+                };
+            }
+
+            return state;
         }
+
 
         case "PRESS_CLEAR": {
             return {
@@ -114,10 +120,11 @@ function calculator(state = INITIAL_STATE, action) {
             };
         }
 
+
         default: {
             return state;
         }
     }
 }
 
-export default calculator;
+export default calculatorResult;
