@@ -3,73 +3,63 @@ import calculate from "./functions/calculate";
 const INITIAL_STATE = {
     inputNum: "",
     result: 0,          // The calculated result so far
-    screenShow: false   
+    operation: null,
+    screenShow: false
 };
 
-// Calculator result reducer
+/**
+ * Calculator result reducer.
+ * Does the internal calculations and shows only the result.
+ */
 function calculatorResult(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case "PRESS_NUM": {
+        case "PRESS_NUM":
+            // Store the input value (as a string)
             return {
                 ...state,
-                inputNum: parseFloat(state.inputNum.toString() + action.num)
+                inputNum: state.inputNum + action.num
             };
-        }
 
-        case "PRESS_DECIMAL": {
-            // Test the number if it has a decimal point
-            // If the user has not typed anything yet, use the last computed result
-            let hasDecimal = (/\./).test(state.inputNum || state.result);
 
-            // If the screen does not show a decimal yet, then add it
+        case "PRESS_DECIMAL": 
+            let hasDecimal = (/\./).test(state.inputNum);
+
+            // Only add if no decimal has been placed yet
             if (!hasDecimal) {
                 return {
                     ...state,
-                    inputNum: (state.result) ? (state.result + ".") : (state.inputNum + "."),
-                    screen: (state.result) ? (state.result + ".") : (state.inputNum + "."),
+                    inputNum: state.inputNum + "."
                 };
             }
 
             return state;
-        }
 
 
-        case "PRESS_TOGGLE_SIGN": {
-            let theNum = parseFloat(state.inputNum) || state.result;
+        case "PRESS_TOGGLE_SIGN":
+            // Conver string display to number
+            let theNum = parseFloat(state.inputNum);
 
-            // Test the number if it has a negative sign
-            // If the user has not typed anything yet, use the last computed result
-            let hasNegative = (/\-/).test((state.inputNum) || state.result.toString());
+            // If positive, add negative
+            if (theNum > 0) {
+                return {
+                    ...state,
+                    inputNum: "-" + state.inputNum
+                };
+            }
 
-            // For non-zero numbers only (0 does not have a "negative")
-            if (theNum !== 0) {
-                // If there is no operation set, use the last computed result
-                if (!state.operation) {
-                    return {
-                        ...state,
-                        result: -(state.result),
-                        inputNum: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1),
-                        screen: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1)
-                    };
-                }
-
-                // Otherwise, take the current input number instead
-                else {
-                    return {
-                        ...state,
-                        result: -(state.result),
-                        inputNum: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1),
-                        screen: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1)
-                    };
-                }
+            // If negative, remove it
+            else if (theNum < 0) {
+                return {
+                    ...state,
+                    inputNum: state.inputNum.slice(1)
+                };
             }
 
             // Return original state if zero
             return state;
-        }
 
 
-        case "PRESS_OPERATION": {
+        case "PRESS_OPERATION": 
             // If there is no operation yet: Set it, save the current input as the result, and clear it
             if (!state.operation) {
                 return {
@@ -91,15 +81,17 @@ function calculatorResult(state = INITIAL_STATE, action) {
             // If there is an input number already
             else if (state.inputNum && action.operation) {
                 // Calculate the previous operation first
-                const newState = calculate(state);
-
+                // Store the result
                 // Then store the new operation
                 return {
-                    ...newState,
-                    operation: action.operation
+                    ...state,
+                    result: calculate(state),
+                    operation: action.operation,
+                    screenShow: true
                 };
             }
-        }
+
+            return state;
 
 
         case "PRESS_EQUAL": {

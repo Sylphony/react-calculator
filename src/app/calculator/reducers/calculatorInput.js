@@ -2,67 +2,99 @@
 
 const INITIAL_STATE = {
     inputNum: "",       // The input number used for logic
+    onNextNum: false,
+    operation: null,
     screenShow: true    // Toggle the user input display (the result reducer will be opposite of this)
 };
 
 /**
  * Calculator input reducer.
+ * Shows only what the user types.
  */
 function calculatorInput(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "PRESS_NUM":
+            // When the user is on the next number, clear the current inputNum first
+            if (state.onNextNum) {
+                return {
+                    ...state,
+                    inputNum: "" + action.num,
+                    onNextNum: false
+                };
+            }
+
+            // Store the input value (as a string)
             return {
                 ...state,
                 inputNum: state.inputNum + action.num
             };
 
         case "PRESS_DECIMAL": 
-            // Test the number if it has a decimal point
-            // If the user has not typed anything yet, use the last computed result
             let hasDecimal = (/\./).test(state.inputNum);
 
-            // If the screen does not show a decimal yet, then add it
+            // Only add if no decimal has been placed yet
             if (!hasDecimal) {
                 return {
                     ...state,
-                    inputNum: (state.result) ? (state.result + ".") : (state.inputNum + "."),
-                    screen: (state.result) ? (state.result + ".") : (state.inputNum + "."),
+                    inputNum: state.inputNum + "."
                 };
             }
 
             return state;
 
         case "PRESS_TOGGLE_SIGN":
+            // Conver string display to number
             let theNum = parseFloat(state.inputNum);
 
-            // Test the number if it has a negative sign
-            // If the user has not typed anything yet, use the last computed result
-            let hasNegative = (/\-/).test((state.inputNum) || state.result.toString());
+            // If positive, add negative
+            if (theNum > 0) {
+                return {
+                    ...state,
+                    inputNum: "-" + state.inputNum
+                };
+            }
 
-            // For non-zero numbers only (0 does not have a "negative")
-            if (theNum !== 0) {
-                // If there is no operation set, use the last computed result
-                if (!state.operation) {
-                    return {
-                        ...state,
-                        result: -(state.result),
-                        inputNum: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1),
-                        screen: (!hasNegative) ? ("-" + state.result.toString()) : state.result.toString().slice(1)
-                    };
-                }
-
-                // Otherwise, take the current input number instead
-                else {
-                    return {
-                        ...state,
-                        result: -(state.result),
-                        inputNum: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1),
-                        screen: (!hasNegative) ? ("-" + state.inputNum.toString()) : state.inputNum.toString().slice(1)
-                    };
-                }
+            // If negative, remove it
+            else if (theNum < 0) {
+                return {
+                    ...state,
+                    inputNum: state.inputNum.slice(1)
+                };
             }
 
             // Return original state if zero
+            return state;
+
+        case "PRESS_OPERATION":
+            // If there is no operation yet:
+            // 1. Set it
+            // 2. Save current input as the result
+            // 3. Raise a flag to blank the next number typing
+            if (!state.operation) {
+                return {
+                    ...state,
+                    operation: action.operation,
+                    onNextNum: true
+                };
+            }
+
+            // If the user clicks on an operation while they have not input the next number: Save the new operation
+            else if (!state.inputNum && (action.operation !== state.operation)) {
+                 return {
+                    ...state,
+                    operation: action.operation
+                };
+            }
+
+            // If there is an input number already
+            else if (state.inputNum && action.operation) {
+                return {
+                    ...state,
+                    operation: action.operation,
+                    screenShow: false
+                };
+            }
+
             return state;
 
         default:
