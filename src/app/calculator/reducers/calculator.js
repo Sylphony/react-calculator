@@ -44,6 +44,7 @@ function calculator(state = INITIAL_STATE, action) {
                 screen: "input"
             };
 
+
         case "PRESS_BACKSPACE":
             // Only allow backspacing on current input
             if (!state.onNextNum) {
@@ -115,10 +116,10 @@ function calculator(state = INITIAL_STATE, action) {
                     };
                 }
 
-                // If the user clicks on an operation while they have not input the next number: 
+                // If the user clicks on another operation before calculation
                 // 1. Save the new operation
                 // 2. Raise the signal for calculator to know user is on next number
-                else if (!state.inputNum && (action.operation !== state.operation)) {
+                else if (action.operation !== state.operation) {
                      return {
                         ...state,
                         operation: action.operation,
@@ -133,7 +134,7 @@ function calculator(state = INITIAL_STATE, action) {
                 // 4. Raise the signal for calculator to know user is on next number
                 // 5. Store the new operation
                 // 6. Show the result screen
-                else if (state.inputNum && action.operation) {
+                else if (!state.onNextNum && action.operation) {
                     let result = calculate(state);
 
                     return {
