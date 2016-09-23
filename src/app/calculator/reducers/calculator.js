@@ -1,4 +1,5 @@
 import calculate from "./functions/calculate";
+import checkLeadingZero from "./functions/checkLeadingZero";
 
 const INITIAL_STATE = {
     inputNum: "",           // The input number used for logic
@@ -9,12 +10,23 @@ const INITIAL_STATE = {
 };
 
 /**
- * Calculator result reducer.
- * Does the internal calculations and shows only the result.
+ * Calculator reducer.
  */
 function calculator(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "PRESS_NUM":
+            let hasLeadingZero = checkLeadingZero(state);
+
+            // If there is only a zero (which implies leading zero), replace it instead of concatenating with it
+            // This will also prevent multiple leading zeroes
+            if (hasLeadingZero && state.inputNum.length === 1) {
+                return {
+                    ...state,
+                    inputNum: action.num,
+                    screen: "input"
+                };
+            }
+
             // When the user is on the next number, clear the current inputNum first
             if (state.onNextNum) {
                 return {
@@ -88,48 +100,51 @@ function calculator(state = INITIAL_STATE, action) {
 
 
         case "PRESS_OPERATION":
-            // If there is no operation clicked yet:
-            // 1. Set it
-            // 2. Save the current input as the result
-            // 3. Raise the signal for calculator to know user is on next number
-            if (!state.operation) {
-                return {
-                    ...state,
-                    operation: action.operation,
-                    result: parseFloat(state.inputNum),
-                    onNextNum: true
-                };
-            }
+            // Only progress if there is a number already first
+            if (state.inputNum) {
+                // If there is no operation clicked yet:
+                // 1. Set it
+                // 2. Save the current input as the result
+                // 3. Raise the signal for calculator to know user is on next number
+                if (!state.operation) {
+                    return {
+                        ...state,
+                        operation: action.operation,
+                        result: parseFloat(state.inputNum),
+                        onNextNum: true
+                    };
+                }
 
-            // If the user clicks on an operation while they have not input the next number: 
-            // 1. Save the new operation
-            // 2. Raise the signal for calculator to know user is on next number
-            else if (!state.inputNum && (action.operation !== state.operation)) {
-                 return {
-                    ...state,
-                    operation: action.operation,
-                    onNextNum: true
-                };
-            }
+                // If the user clicks on an operation while they have not input the next number: 
+                // 1. Save the new operation
+                // 2. Raise the signal for calculator to know user is on next number
+                else if (!state.inputNum && (action.operation !== state.operation)) {
+                     return {
+                        ...state,
+                        operation: action.operation,
+                        onNextNum: true
+                    };
+                }
 
-            // If user has typed an input number already and click on an action:
-            // 1. Calculate the previous operation
-            // 2. Store the result
-            // 3. Set the result to the input
-            // 4. Raise the signal for calculator to know user is on next number
-            // 5. Store the new operation
-            // 6. Show the result screen
-            else if (state.inputNum && action.operation) {
-                let result = calculate(state);
+                // If user has typed an input number already and click on an action:
+                // 1. Calculate the previous operation
+                // 2. Store the result
+                // 3. Set the result to the input
+                // 4. Raise the signal for calculator to know user is on next number
+                // 5. Store the new operation
+                // 6. Show the result screen
+                else if (state.inputNum && action.operation) {
+                    let result = calculate(state);
 
-                return {
-                    ...state,
-                    result: result,
-                    inputNum: result.toString(),
-                    operation: action.operation,
-                    onNextNum: true,
-                    screen: "result"
-                };
+                    return {
+                        ...state,
+                        result: result,
+                        inputNum: result.toString(),
+                        operation: action.operation,
+                        onNextNum: true,
+                        screen: "result"
+                    };
+                }
             }
 
             return state;

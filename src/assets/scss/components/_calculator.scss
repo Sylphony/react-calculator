@@ -18,6 +18,9 @@
         height:60px;
         margin:5px 5px 10px;
 
+        color:map-get($colors, black);
+        font-size:1.25rem;
+
         background-color:fade-out(map-get($colors, white), 0.1);
 
         // Inside display
