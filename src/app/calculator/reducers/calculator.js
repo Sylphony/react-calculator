@@ -112,22 +112,24 @@ function calculator(state = INITIAL_STATE, action) {
                         ...state,
                         operation: action.operation,
                         result: parseFloat(state.inputNum),
-                        onNextNum: true
+                        onNextNum: true,
+                        screen: "input"
                     };
                 }
 
-                // If the user clicks on another operation before calculation
+                // If the user has not set the next number and clicks on another operation before calculation:
                 // 1. Save the new operation
                 // 2. Raise the signal for calculator to know user is on next number
-                else if (action.operation !== state.operation) {
+                else if (state.onNextNum && (action.operation !== state.operation)) {
                      return {
                         ...state,
                         operation: action.operation,
-                        onNextNum: true
+                        onNextNum: true,
+                        screen: "input"
                     };
                 }
 
-                // If user has typed an input number already and click on an action:
+                // If the user has set another number and another operation is clicked:
                 // 1. Calculate the previous operation
                 // 2. Store the result
                 // 3. Set the result to the input
@@ -143,7 +145,7 @@ function calculator(state = INITIAL_STATE, action) {
                         inputNum: result.toString(),
                         operation: action.operation,
                         onNextNum: true,
-                        screen: "result"
+                        screen: "input"
                     };
                 }
             }
