@@ -18,16 +18,47 @@
         height:60px;
         margin:5px 5px 10px;
 
-        color:map-get($colors, black);
-        font-size:1.25rem;
-
         background-color:fade-out(map-get($colors, white), 0.1);
+
+        &-operation, 
+        &-display {
+            display:block;
+        }
+
+        // The operation display
+        &-operation {
+            position:absolute;
+            top:0;
+            left:0;
+
+            width:60px;
+            height:100%;
+
+            color:map-get($colors, white);
+            line-height:60px;
+            text-align:center;
+
+            background-color:map-get($colors, blue);
+        }
 
         // Inside display
         &-display {
             @extend %center-v;
 
+            left:10px;
             right:10px;
+
+            margin-left:60px + 5px;
+
+            color:map-get($colors, black);
+            font-size:1.25rem;
+            text-align:right;
+
+            overflow:hidden;
+
+            &--input {
+                color:map-get($colors, blue);
+            }
         }
     }
 

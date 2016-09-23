@@ -3,7 +3,14 @@ import classNames from "classnames";
 
 class CalculatorScreen extends React.Component {
     render() {
-        let [inputDisplayClasses, resultDisplayClasses] = [
+        let [operationClasses, inputDisplayClasses, resultDisplayClasses] = [
+            classNames(
+                "calculator__screen-operation",
+                {
+                    "hide": !this.props.calculator.operation
+                }
+            ),
+
             classNames(
                 "calculator__screen-display",
                 "calculator__screen-display--input",
@@ -23,6 +30,7 @@ class CalculatorScreen extends React.Component {
 
         return (
             <div className="calculator__screen">
+                <span className={ operationClasses }>{ this.props.calculator.operation }</span>
                 <span className={ inputDisplayClasses }>{ this.props.calculator.inputNum }</span>
                 <span className={ resultDisplayClasses }>{ this.props.calculator.result }</span>
             </div>

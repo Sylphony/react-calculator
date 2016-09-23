@@ -2,11 +2,11 @@ import calculate from "./functions/calculate";
 import checkLeadingZero from "./functions/checkLeadingZero";
 
 const INITIAL_STATE = {
-    inputNum: "",           // The input number used for logic
+    inputNum: "0",          // The input number used for logic
     onNextNum: false,       // Flag to signal state that user is on next number
     result: 0,              // The calculated result so far
     operation: null,        // What operation is being performed
-    screen: "input"         // Determine which value to show on screen ("input" or "result")
+    screen: "result"        // Determine which value to show on screen ("input" or "result")
 };
 
 /**
@@ -135,7 +135,6 @@ function calculator(state = INITIAL_STATE, action) {
                 // 3. Set the result to the input
                 // 4. Raise the signal for calculator to know user is on next number
                 // 5. Store the new operation
-                // 6. Show the result screen
                 else if (!state.onNextNum && action.operation) {
                     let result = calculate(state);
 
