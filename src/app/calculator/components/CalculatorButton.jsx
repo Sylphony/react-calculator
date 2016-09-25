@@ -23,4 +23,10 @@ class CalculatorButton extends React.Component {
     }
 }
 
+CalculatorButton.propTypes = {
+    keyVal: React.PropTypes.string.isRequired,
+    click: React.PropTypes.func,
+    customClass: React.PropTypes.string
+};
+
 export default CalculatorButton;

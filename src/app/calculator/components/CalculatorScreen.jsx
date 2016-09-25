@@ -38,4 +38,8 @@ class CalculatorScreen extends React.Component {
     }
 }
 
+CalculatorScreen.propTypes = {
+    calculator: React.PropTypes.object.isRequired
+};
+
 export default CalculatorScreen;

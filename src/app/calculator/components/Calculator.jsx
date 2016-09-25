@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React from "react";
 import CalculatorButton from "./CalculatorButton.jsx";
 import CalculatorScreen from "./CalculatorScreen.jsx";
 
@@ -103,5 +103,11 @@ class Calculator extends React.Component {
         window.removeEventListener("keydown");
     }
 }
+
+
+Calculator.propTypes = {
+    actions: React.PropTypes.object.isRequired,
+    calculator: React.PropTypes.object.isRequired
+};
 
 export default Calculator;
