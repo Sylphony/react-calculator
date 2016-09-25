@@ -48,9 +48,17 @@ function calculator(state = INITIAL_STATE, action) {
         case "PRESS_BACKSPACE":
             // Only allow backspacing on current input
             if (!state.onNextNum) {
+                let newInputNum = state.inputNum.slice(0, state.inputNum.length-1);
+
+                // If negative sign remains, reset it
+                if (newInputNum === "-") newInputNum = "";
+
+                // If blank, set to '0'
+                if (newInputNum === "") newInputNum = "0";
+
                 return {
                     ...state,
-                    inputNum: state.inputNum.slice(0, state.inputNum.length-1),
+                    inputNum: newInputNum,
                     screen: "input"
                 };
             }
