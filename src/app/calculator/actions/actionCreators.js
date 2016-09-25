@@ -4,21 +4,21 @@ export function pressNum(num) {
         type: "PRESS_NUM",
         num
     };
-}
+};
 
 // The backspace key is pressed
 export function pressBackspace() {
     return {
         type: "PRESS_BACKSPACE"
     };
-}
+};
 
 // The decimal key is pressed
 export function pressDecimal() {
     return {
         type: "PRESS_DECIMAL"
     };
-}
+};
 
 // An operation key is pressed
 export function pressOperation(operation) {
@@ -33,18 +33,18 @@ export function pressEqual() {
     return {
         type: "PRESS_EQUAL"
     };
-}
+};
 
 // Clear button is pressed
 export function pressClear() {
     return {
         type: "PRESS_CLEAR"
     };
-}
+};
 
 // Sign toggle button is pressed
 export function pressToggleSign() {
     return {
         type: "PRESS_TOGGLE_SIGN"
     };
-}
+};
