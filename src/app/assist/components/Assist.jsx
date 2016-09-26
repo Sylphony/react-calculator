@@ -1,5 +1,5 @@
 import React from "react";
-import AssistMenu from "./AssistMenu.jsx";
+import AssistTable from "./AssistTable.jsx";
 
 class Assist extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Assist extends React.Component {
             <div className="assist">
                 <button type="button" className="assist__btn-menu-toggle">Toggle</button>
                 
-                <AssistMenu />
+                <AssistTable />
             </div>
         );
     }
