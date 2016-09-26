@@ -2,9 +2,9 @@ function calculate(state) {
     let [result, inputNum, operation] = [parseFloat(state.result), parseFloat(state.inputNum), state.operation];
 
     // At least a number must be inputted first 
-    if (inputNum) {
+    if (!isNaN(inputNum)) {
         // If there isn't a result yet, make the typed number the result
-        if (!result) {
+        if (result === null) {
             result = inputNum;
         }
 

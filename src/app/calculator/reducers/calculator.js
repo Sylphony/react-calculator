@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     onNextNum: false,       // Flag to signal state that user is on next number
     result: 0,              // The calculated result so far
     operation: null,        // What operation is being performed
+    disableInput: false,    // Flag to disable input (for inexistent values)
     screen: "result"        // Determine which value to show on screen ("input" or "result")
 };
 
@@ -23,6 +24,7 @@ function calculator(state = INITIAL_STATE, action) {
                 return {
                     ...state,
                     inputNum: action.num,
+                    onNextNum: false,
                     screen: "input"
                 };
             }
@@ -146,13 +148,23 @@ function calculator(state = INITIAL_STATE, action) {
                 else if (!state.onNextNum && action.operation) {
                     let result = calculate(state);
 
+                    if (isNaN(result) || result === Infinity) {
+                        return {
+                            ...state,
+                            result: "N/A: Clear the screen",
+                            operation: null,
+                            disableInput: true,
+                            screen: "result"
+                        };
+                    }
+
                     return {
                         ...state,
                         result: result,
                         inputNum: result.toString(),
                         operation: action.operation,
                         onNextNum: true,
-                        screen: "input"
+                        screen: "result"
                     };
                 }
             }
@@ -170,6 +182,16 @@ function calculator(state = INITIAL_STATE, action) {
             // 6. Show the result screen
             if (state.inputNum && state.operation) {
                 let result = calculate(state);
+
+                if (isNaN(result) || result === Infinity) {
+                    return {
+                        ...state,
+                        result: "N/A: Clear the screen",
+                        operation: null,
+                        disableInput: true,
+                        screen: "result"
+                    };
+                }
 
                 return {
                     ...state,

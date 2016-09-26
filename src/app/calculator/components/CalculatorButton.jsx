@@ -10,13 +10,15 @@ class CalculatorButton extends React.Component {
                 "calculator__button",
                 "button",
                 this.props.customClass
-            )
+            ),
+            disableInput: this.props.disableInput
         };
 
         return (
             <button className={ btnProp.className }
                     type="button" 
-                    onClick={ btnProp.click.bind(null, btnProp.keyVal) }>    
+                    onClick={ btnProp.click.bind(null, btnProp.keyVal) }
+                    disabled={ btnProp.disableInput }>    
                 { btnProp.keyVal }
             </button>
         );
