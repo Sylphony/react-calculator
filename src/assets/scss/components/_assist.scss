@@ -1,0 +1,60 @@
+// Assist container (initially hidden from view)
+.assist {
+    $btn-toggle-height: 40px;
+
+    position:fixed;
+    top:calc(100% - #{$btn-toggle-height});
+    right:10px;
+    z-index:50;
+    transform:translateY(0);
+    
+    width:350px;
+    border:1px solid lighten(map-get($colors, blue-sky), 10%);
+
+    transition:transform 0.5s;
+
+    // Show
+    &--show {
+        transform:translateY(-90%);
+    }
+
+    // Button toggle
+    &__btn-toggle {
+        display:block;
+
+        width:100%;
+        height:$btn-toggle-height;
+
+        font-size:0.65rem;
+        font-weight:bold;
+
+        background-color:lighten(map-get($colors, blue-sky), 20%);
+
+        &-icon, 
+        &-text {
+            display:inline-block;
+            vertical-align:middle;
+        }
+
+        &-icon {
+            margin-right:10px;
+        }
+    }
+
+    // Table
+    &__table {
+        font-size:0.5rem;
+
+        &-row {
+            &:nth-child(even) {
+                background-color:lighten(map-get($colors, blue-sky), 20%);
+            }
+        }
+
+        td {
+            &:first-child {
+                font-weight:bold;
+            }
+        }
+    }
+}

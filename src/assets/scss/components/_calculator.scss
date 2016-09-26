@@ -5,6 +5,8 @@
     width:600px;
     padding:10px;
 
+    font-size:3rem;
+
     background-color:lighten(map-get($colors, blue-sky), 20%);
     box-shadow:
         -3px 5px 5px -5px fade-out(darken(map-get($colors, blue-sky), 30%), 0.85),
@@ -91,12 +93,6 @@
         // Right buttons container (equal sign)
         .calculator__buttons--right & {
             width:calc(100% - 10px);
-        }
-
-        // Zero button
-        &--zero,
-        .calculator__buttons--left &--zero {
-            width:calc((100% * 2/3) - 10px);
         }
 
         // Operation buttons
