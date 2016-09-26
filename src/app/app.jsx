@@ -2,15 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import store from "./calculator/store";
+import store from "./app.store";
 import CalculatorContainer from "./calculator/containers/CalculatorContainer.jsx";
-
+import AssistContainer from "./assist/containers/AssistContainer.jsx";
 
 class App extends React.Component {
     render() {
         return (
             <Provider store={ store }>
-                <CalculatorContainer />
+                <div>
+                    <AssistContainer />
+                    <CalculatorContainer />
+                </div>
             </Provider>
         );
     }

@@ -31,7 +31,7 @@ class AssistTable extends React.Component {
         }
 
         return (
-            <table>
+            <table className="assist__table">
                 <tbody>
                     { AssistTableRowEles }
                 </tbody>
