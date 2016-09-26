@@ -56,9 +56,15 @@ class Calculator extends React.Component {
         window.addEventListener("keydown", (e) => {
             e.preventDefault(); // Stop any events that may be triggered as a result of button focus (e.g. pressing enter while button is focused from clicking)
 
+            let keyChar = e.key;
+
+            // If ESC is pressed
+            if (keyLookup.clear.indexOf(keyChar) > -1) {
+                this.props.actions.pressClear();
+            }
+
             // Only allow input as long the calculator has not run into an error
             if (!this.props.calculator.disableInput) {
-                let keyChar = e.key;
 
                 // If it is a number key
                 if (keyLookup.num.indexOf(keyChar) > -1) {
@@ -92,11 +98,6 @@ class Calculator extends React.Component {
                 // If backspace key is pressed
                 else if (keyLookup.backspace.indexOf(keyChar) > -1) {
                     this.props.actions.pressBackspace();
-                }
-
-                // If ESC is pressed
-                else if (keyLookup.clear.indexOf(keyChar) > -1) {
-                    this.props.actions.pressClear();
                 }
             }
         });
