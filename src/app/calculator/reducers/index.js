@@ -1,14 +1,9 @@
-// In reducers/index.js, all reducers are imported and combined.
-// To that, the combineReducers() from the redux lib is used.
-
-import { combineReducers } from "redux";
+// The base file for all reducers in calculator
 
 import calculator from "./calculator";
 
-
-const allReducers = combineReducers({
-    /* The reducers here */
+const calculatorReducers = {
     calculator
-});
+};
 
-export default allReducers;
+export default calculatorReducers;
