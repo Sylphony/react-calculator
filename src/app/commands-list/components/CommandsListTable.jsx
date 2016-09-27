@@ -1,7 +1,7 @@
 import React from "react";
-import AssistTableRow from "./AssistTableRow.jsx";
+import CommandsListTableRow from "./CommandsListTableRow.jsx";
 
-class AssistTable extends React.Component {
+class CommandsListTable extends React.Component {
     render() {
         const keyFuncMap = {
             "0-9": "Numbers",
@@ -17,7 +17,7 @@ class AssistTable extends React.Component {
             "ESC": "Clear"
         };
 
-        let AssistTableRowEles = [];
+        let CommandsListTableRowEles = [];
 
         for (let keyChar in keyFuncMap) {
             let keyProp = {
@@ -25,19 +25,19 @@ class AssistTable extends React.Component {
                 keyFunc: keyFuncMap[keyChar]
             };
 
-            AssistTableRowEles.push(
-                <AssistTableRow key={ keyChar } { ...keyProp } />
+            CommandsListTableRowEles.push(
+                <CommandsListTableRow key={ keyChar } { ...keyProp } />
             );
         }
 
         return (
-            <table className="assist__table">
+            <table className="command-list__table">
                 <tbody>
-                    { AssistTableRowEles }
+                    { CommandsListTableRowEles }
                 </tbody>
             </table>
         );
     }
 }
 
-export default AssistTable;
+export default CommandsListTable;

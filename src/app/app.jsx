@@ -4,14 +4,14 @@ import { Provider } from "react-redux";
 
 import store from "./app.store";
 import CalculatorContainer from "./calculator/containers/CalculatorContainer.jsx";
-import AssistContainer from "./assist/containers/AssistContainer.jsx";
+import CommandsListContainer from "./commands-list/containers/CommandsListContainer.jsx";
 
 class App extends React.Component {
     render() {
         return (
             <Provider store={ store }>
                 <div>
-                    <AssistContainer />
+                    <CommandsListContainer />
                     <CalculatorContainer />
                 </div>
             </Provider>

@@ -1,15 +1,15 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Assist from "./../components/Assist.jsx";
+import CommandsList from "./../components/CommandsList.jsx";
 // import * as actionCreators from "./../actions/actionCreators";
 
-class AssistContainer extends React.Component {
+class CommandsListContainer extends React.Component {
     render() {
         return (
-            <Assist />
+            <CommandsList />
         );
     }
 }
 
-export default connect()(AssistContainer);
+export default connect()(CommandsListContainer);

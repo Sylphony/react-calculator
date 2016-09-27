@@ -1,9 +1,9 @@
 import React from "react";
 
-class AssistTableRow extends React.Component {
+class CommandsListTableRow extends React.Component {
     render() {
         return (
-            <tr className="assist__table-row">
+            <tr className="commands-list__table-row">
                 <td>{ this.props.keyChar }</td>
                 <td>{ this.props.keyFunc }</td>
             </tr>
@@ -11,4 +11,4 @@ class AssistTableRow extends React.Component {
     }
 }
 
-export default AssistTableRow;
+export default CommandsListTableRow;
