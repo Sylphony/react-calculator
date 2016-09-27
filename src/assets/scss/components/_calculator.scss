@@ -6,10 +6,7 @@
     padding:10px;
 
     background-color:lighten(map-get($colors, blue-sky), 20%);
-    box-shadow:
-        -3px 5px 5px -5px fade-out(darken(map-get($colors, blue-sky), 30%), 0.85),
-        3px 5px 5px -5px fade-out(darken(map-get($colors, blue-sky), 30%), 0.85),
-        0px 0px 5px 0 fade-out(darken(map-get($colors, blue-sky), 30%), 0.65);
+    border:1px solid lighten(map-get($colors, blue-sky), 10%);
 
     // Screen
     &__screen {

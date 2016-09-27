@@ -1,6 +1,6 @@
 // Commands list container (initially hidden from view)
 .commands-list {
-    $btn-toggle-height: 40px;
+    $btn-toggle-height: 45px;
 
     position:fixed;
     top:calc(100% - #{$btn-toggle-height});
@@ -15,7 +15,7 @@
 
     // Show
     &--show {
-        transform:translateY(-90%);
+        transform:translateY(-88%);
     }
 
     // Button toggle
@@ -25,10 +25,9 @@
         width:100%;
         height:$btn-toggle-height;
 
-        font-size:0.65rem;
-        font-weight:bold;
-
-        background-color:lighten(map-get($colors, blue-sky), 20%);
+        font-size:0.66rem;
+        
+        outline:0;
 
         &-icon, 
         &-text {

@@ -10,8 +10,8 @@ class CommandsListTable extends React.Component {
             "*": "Multiplication",
             "/": "Division",
             ".": "Decimal point",
-            "F1": "Show keyboard commands table",
-            "F8": "Toggle positive/negative sign",
+            "F1": "Show/hide keyboard commands table",
+            "F9": "Toggle positive/negative sign",
             "ENTER / =": "Calculate",
             "BACKSPACE": "Backspace",
             "ESC": "Clear"
