@@ -12,6 +12,8 @@ function commandsListKeyboard(e, props) {
     // Stop any events that may be triggered as a result of button focus (e.g. pressing enter while button is focused from clicking)
     e.preventDefault();
 
+    props.actions.testCommand();
+
     let keyChar = e.key;
 
     // When "F1" key is pressed

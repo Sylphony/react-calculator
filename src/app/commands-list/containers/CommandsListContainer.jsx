@@ -7,7 +7,8 @@ import * as actionCreators from "./../actions/actionCreators";
 class CommandsListContainer extends React.Component {
     render() {
         const actions = {
-            pressToggleCommandsList: this.props.pressToggleCommandsList
+            pressToggleCommandsList: this.props.pressToggleCommandsList,
+            testCommand: this.props.testCommand
         };
 
         return (
