@@ -10,7 +10,7 @@ class CommandsListTable extends React.Component {
             "*": "Multiplication",
             "/": "Division",
             ".": "Decimal point",
-            "F1": "Show assist table",
+            "F1": "Show keyboard commands table",
             "F8": "Toggle positive/negative sign",
             "ENTER / =": "Calculate",
             "BACKSPACE": "Backspace",
@@ -31,7 +31,7 @@ class CommandsListTable extends React.Component {
         }
 
         return (
-            <table className="command-list__table">
+            <table className="commands-list__table">
                 <tbody>
                     { CommandsListTableRowEles }
                 </tbody>

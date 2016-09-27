@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    showCommandsList: false
+    showList: false
 };
 
 /**
@@ -10,7 +10,7 @@ function commandsList(state = INITIAL_STATE, action) {
         case "PRESS_TOGGLE_COMMANDS_LIST":
             return {
                 ...state,
-                showCommandsList: !state.showCommandsList
+                showList: !state.showList
             };
 
         default:

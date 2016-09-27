@@ -11,7 +11,7 @@
     width:350px;
     border:1px solid lighten(map-get($colors, blue-sky), 10%);
 
-    transition:transform 0.5s;
+    transition:transform 0.3s ease-out;
 
     // Show
     &--show {
