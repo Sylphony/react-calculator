@@ -8,7 +8,6 @@ const keyLookup = {
  * @param e: Event (keydown).
  * @param props: The component's properties.
  */
-
 function commandsListKeyboard(e, props) {
     // Stop any events that may be triggered as a result of button focus (e.g. pressing enter while button is focused from clicking)
     e.preventDefault();
