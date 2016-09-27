@@ -435,7 +435,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".block {\n  display: block; }\n\n.inline-block, .horizontal-list > li {\n  display: inline-block;\n  vertical-align: top; }\n\n.reset-list {\n  list-style: none;\n  padding: 0;\n  margin: 0; }\n\n.calculator {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\n.calculator__screen-display {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%); }\n\nhtml {\n  font-size: 24px; }\n\n.button {\n  margin-bottom: 0;\n  background-color: skyblue; }\n\n.column {\n  padding-left: 0;\n  padding-right: 0; }\n\n.main {\n  position: relative; }\n\n.calculator {\n  width: 600px;\n  padding: 10px;\n  background-color: #def2fa;\n  box-shadow: -3px 5px 5px -5px rgba(31, 141, 186, 0.15), 3px 5px 5px -5px rgba(31, 141, 186, 0.15), 0px 0px 5px 0 rgba(31, 141, 186, 0.35); }\n  .calculator__screen {\n    position: relative;\n    height: 60px;\n    margin: 5px 5px 10px;\n    background-color: rgba(255, 255, 255, 0.9); }\n    .calculator__screen-operation, .calculator__screen-display {\n      display: block; }\n    .calculator__screen-operation {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 60px;\n      height: 100%;\n      color: #FFF;\n      line-height: 60px;\n      text-align: center;\n      background-color: #2196f3; }\n    .calculator__screen-display {\n      left: 10px;\n      right: 10px;\n      margin-left: 65px;\n      color: #333;\n      font-size: 1.25rem;\n      text-align: right;\n      overflow: hidden; }\n      .calculator__screen-display--input {\n        color: #2196f3; }\n  .calculator__button {\n    float: left;\n    height: 60px;\n    margin: 5px; }\n    .calculator__buttons--left .calculator__button {\n      width: calc((100% / 3) - 10px); }\n    .calculator__buttons--center .calculator__button {\n      width: calc((100% / 2) - 10px); }\n      .calculator__buttons--center .calculator__button--full {\n        width: calc(100% - 10px); }\n    .calculator__buttons--right .calculator__button {\n      width: calc(100% - 10px); }\n    .calculator__button--zero,\n    .calculator__buttons--left .calculator__button--zero {\n      width: calc((100% * 2/3) - 10px); }\n    .calculator__button--equal {\n      height: calc((60px*4) + 30px); }\n", ""]);
+	exports.push([module.id, ".block {\n  display: block; }\n\n.inline-block, .horizontal-list > li {\n  display: inline-block;\n  vertical-align: top; }\n\n.reset-list {\n  list-style: none;\n  padding: 0;\n  margin: 0; }\n\n.calculator {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n\n.calculator__screen-display {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%); }\n\nhtml {\n  font-size: 24px; }\n\n.button {\n  margin-bottom: 0;\n  background-color: skyblue; }\n\n.column {\n  padding-left: 0;\n  padding-right: 0; }\n\ntable tbody {\n  border: 0; }\n\n.main {\n  position: relative; }\n\n.calculator {\n  width: 600px;\n  padding: 10px;\n  background-color: #def2fa;\n  border: 1px solid #b3e0f2; }\n  .calculator__screen {\n    position: relative;\n    height: 60px;\n    margin: 5px 5px 10px;\n    background-color: rgba(255, 255, 255, 0.9); }\n    .calculator__screen-operation, .calculator__screen-display {\n      display: block; }\n    .calculator__screen-operation {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 60px;\n      height: 100%;\n      color: #FFF;\n      line-height: 60px;\n      text-align: center;\n      background-color: #2196f3; }\n    .calculator__screen-display {\n      left: 10px;\n      right: 10px;\n      margin-left: 65px;\n      color: #333;\n      font-size: 1.25rem;\n      text-align: right;\n      overflow: hidden; }\n      .calculator__screen-display--input {\n        color: #2196f3; }\n  .calculator__button {\n    float: left;\n    height: 60px;\n    margin: 5px; }\n    .calculator__buttons--left .calculator__button {\n      width: calc((100% / 3) - 10px); }\n    .calculator__buttons--center .calculator__button {\n      width: calc((100% / 2) - 10px); }\n      .calculator__buttons--center .calculator__button--full {\n        width: calc(100% - 10px); }\n    .calculator__buttons--right .calculator__button {\n      width: calc(100% - 10px); }\n    .calculator__button--equal {\n      height: calc((60px*4) + 30px); }\n\n.commands-list {\n  position: fixed;\n  top: calc(100% - 45px);\n  right: 10px;\n  z-index: 50;\n  transform: translateY(0);\n  width: 350px;\n  border: 1px solid #b3e0f2;\n  transition: transform 0.3s ease-out; }\n  .commands-list--show {\n    transform: translateY(-88%); }\n  .commands-list__btn-toggle {\n    display: block;\n    width: 100%;\n    height: 45px;\n    font-size: 0.66rem;\n    outline: 0; }\n    .commands-list__btn-toggle-icon, .commands-list__btn-toggle-text {\n      display: inline-block;\n      vertical-align: middle; }\n    .commands-list__btn-toggle-icon {\n      margin-right: 10px; }\n  .commands-list__table {\n    font-size: 0.5rem; }\n    .commands-list__table-row:nth-child(even) {\n      background-color: #def2fa; }\n    .commands-list__table td:first-child {\n      font-weight: bold; }\n", ""]);
 	
 	// exports
 
@@ -458,13 +458,17 @@
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _store = __webpack_require__(202);
+	var _app = __webpack_require__(202);
 	
-	var _store2 = _interopRequireDefault(_store);
+	var _app2 = _interopRequireDefault(_app);
 	
-	var _CalculatorContainer = __webpack_require__(207);
+	var _CalculatorContainer = __webpack_require__(209);
 	
 	var _CalculatorContainer2 = _interopRequireDefault(_CalculatorContainer);
+	
+	var _CommandsListContainer = __webpack_require__(216);
+	
+	var _CommandsListContainer2 = _interopRequireDefault(_CommandsListContainer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -488,8 +492,13 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                _reactRedux.Provider,
-	                { store: _store2.default },
-	                _react2.default.createElement(_CalculatorContainer2.default, null)
+	                { store: _app2.default },
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement(_CommandsListContainer2.default, null),
+	                    _react2.default.createElement(_CalculatorContainer2.default, null)
+	                )
 	            );
 	        }
 	    }]);
@@ -23450,9 +23459,17 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
+	var _index3 = __webpack_require__(207);
+	
+	var _index4 = _interopRequireDefault(_index3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var store = (0, _redux.createStore)(_index2.default);
+	// Combine all the reducers here
+	var allReducers = Object.assign({}, _index2.default, _index4.default);
+	
+	// Create the store
+	var store = (0, _redux.createStore)((0, _redux.combineReducers)(allReducers));
 	
 	exports.default = store;
 
@@ -23466,23 +23483,17 @@
 	    value: true
 	});
 	
-	var _redux = __webpack_require__(186);
-	
 	var _calculator = __webpack_require__(204);
 	
 	var _calculator2 = _interopRequireDefault(_calculator);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// In reducers/index.js, all reducers are imported and combined.
-	// To that, the combineReducers() from the redux lib is used.
-	
-	var allReducers = (0, _redux.combineReducers)({
-	    /* The reducers here */
+	var calculatorReducers = {
 	    calculator: _calculator2.default
-	});
+	}; // The base file for all reducers in calculator
 	
-	exports.default = allReducers;
+	exports.default = calculatorReducers;
 
 /***/ },
 /* 204 */
@@ -23511,6 +23522,7 @@
 	    onNextNum: false, // Flag to signal state that user is on next number
 	    result: 0, // The calculated result so far
 	    operation: null, // What operation is being performed
+	    disableInput: false, // Flag to disable input (for inexistent values)
 	    screen: "result" // Determine which value to show on screen ("input" or "result")
 	};
 	
@@ -23530,6 +23542,7 @@
 	            if (hasLeadingZero && state.inputNum.length === 1) {
 	                return _extends({}, state, {
 	                    inputNum: action.num,
+	                    onNextNum: false,
 	                    screen: "input"
 	                });
 	            }
@@ -23552,8 +23565,16 @@
 	        case "PRESS_BACKSPACE":
 	            // Only allow backspacing on current input
 	            if (!state.onNextNum) {
+	                var newInputNum = state.inputNum.slice(0, state.inputNum.length - 1);
+	
+	                // If negative sign remains, reset it
+	                if (newInputNum === "-") newInputNum = "";
+	
+	                // If blank, set to '0'
+	                if (newInputNum === "") newInputNum = "0";
+	
 	                return _extends({}, state, {
-	                    inputNum: state.inputNum.slice(0, state.inputNum.length - 1),
+	                    inputNum: newInputNum,
 	                    screen: "input"
 	                });
 	            }
@@ -23633,12 +23654,21 @@
 	                    else if (!state.onNextNum && action.operation) {
 	                            var result = (0, _calculate2.default)(state);
 	
+	                            if (isNaN(result) || result === Infinity) {
+	                                return _extends({}, state, {
+	                                    result: "N/A: Clear the screen",
+	                                    operation: null,
+	                                    disableInput: true,
+	                                    screen: "result"
+	                                });
+	                            }
+	
 	                            return _extends({}, state, {
 	                                result: result,
 	                                inputNum: result.toString(),
 	                                operation: action.operation,
 	                                onNextNum: true,
-	                                screen: "input"
+	                                screen: "result"
 	                            });
 	                        }
 	            }
@@ -23655,6 +23685,15 @@
 	            // 6. Show the result screen
 	            if (state.inputNum && state.operation) {
 	                var _result = (0, _calculate2.default)(state);
+	
+	                if (isNaN(_result) || _result === Infinity) {
+	                    return _extends({}, state, {
+	                        result: "N/A: Clear the screen",
+	                        operation: null,
+	                        disableInput: true,
+	                        screen: "result"
+	                    });
+	                }
 	
 	                return _extends({}, state, {
 	                    result: _result,
@@ -23693,9 +23732,9 @@
 	
 	    // At least a number must be inputted first 
 	
-	    if (inputNum) {
+	    if (!isNaN(inputNum)) {
 	        // If there isn't a result yet, make the typed number the result
-	        if (!result) {
+	        if (result === null) {
 	            result = inputNum;
 	        }
 	
@@ -23759,6 +23798,64 @@
 	    value: true
 	});
 	
+	var _commandsList = __webpack_require__(208);
+	
+	var _commandsList2 = _interopRequireDefault(_commandsList);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var commandsListReducers = {
+	    commandsList: _commandsList2.default
+	}; // The base file for all reducers in commands-list
+	
+	exports.default = commandsListReducers;
+
+/***/ },
+/* 208 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var INITIAL_STATE = {
+	    showList: false
+	};
+	
+	/**
+	 * Commands list reducer.
+	 */
+	function commandsList() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? INITIAL_STATE : arguments[0];
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case "PRESS_TOGGLE_COMMANDS_LIST":
+	            return _extends({}, state, {
+	                showList: !state.showList
+	            });
+	
+	        default:
+	            return state;
+	    }
+	}
+	
+	exports.default = commandsList;
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(8);
@@ -23769,11 +23866,11 @@
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _Calculator = __webpack_require__(208);
+	var _Calculator = __webpack_require__(210);
 	
 	var _Calculator2 = _interopRequireDefault(_Calculator);
 	
-	var _actionCreators = __webpack_require__(212);
+	var _actionCreators = __webpack_require__(215);
 	
 	var actionCreators = _interopRequireWildcard(_actionCreators);
 	
@@ -23839,7 +23936,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CalculatorContainer);
 
 /***/ },
-/* 208 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23854,13 +23951,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _CalculatorButton = __webpack_require__(209);
+	var _CalculatorButton = __webpack_require__(211);
 	
 	var _CalculatorButton2 = _interopRequireDefault(_CalculatorButton);
 	
-	var _CalculatorScreen = __webpack_require__(211);
+	var _CalculatorScreen = __webpack_require__(213);
 	
 	var _CalculatorScreen2 = _interopRequireDefault(_CalculatorScreen);
+	
+	var _calculatorKeyboard = __webpack_require__(214);
+	
+	var _calculatorKeyboard2 = _interopRequireDefault(_calculatorKeyboard);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23873,10 +23974,16 @@
 	var Calculator = function (_React$Component) {
 	    _inherits(Calculator, _React$Component);
 	
-	    function Calculator() {
+	    function Calculator(props) {
 	        _classCallCheck(this, Calculator);
 	
-	        return _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).apply(this, arguments));
+	        // Handler for keyboard event listener
+	        var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+	
+	        _this.calculatorKeyboardHandler = function (e) {
+	            (0, _calculatorKeyboard2.default)(e, _this.props);
+	        };
+	        return _this;
 	    }
 	
 	    _createClass(Calculator, [{
@@ -23892,46 +23999,61 @@
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "calculator__buttons calculator__buttons--left clearfix column small-6" },
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "7", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "8", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "9", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "4", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "5", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "6", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "1", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "2", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "3", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "0", click: this.props.actions.pressNum }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: ".", click: this.props.actions.pressDecimal }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "±", click: this.props.actions.pressToggleSign })
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "7", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "8", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "9", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "4", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "5", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "6", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "1", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "2", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "3", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "0", click: this.props.actions.pressNum, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: ".", click: this.props.actions.pressDecimal, disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "±", click: this.props.actions.pressToggleSign, disableInput: this.props.calculator.disableInput })
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "calculator__buttons calculator__buttons--center clearfix column small-4" },
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "+", click: this.props.actions.pressOperation, customClass: "calculator__button--operation" }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "-", click: this.props.actions.pressOperation, customClass: "calculator__button--operation" }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "×", click: this.props.actions.pressOperation, customClass: "calculator__button--operation" }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "÷", click: this.props.actions.pressOperation, customClass: "calculator__button--operation" }),
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "←", click: this.props.actions.pressBackspace, customClass: "calculator__button--operation calculator__button--full" }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "+", click: this.props.actions.pressOperation, customClass: "calculator__button--operation", disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "-", click: this.props.actions.pressOperation, customClass: "calculator__button--operation", disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "×", click: this.props.actions.pressOperation, customClass: "calculator__button--operation", disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "÷", click: this.props.actions.pressOperation, customClass: "calculator__button--operation", disableInput: this.props.calculator.disableInput }),
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "←", click: this.props.actions.pressBackspace, customClass: "calculator__button--operation calculator__button--full", disableInput: this.props.calculator.disableInput }),
 	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "C", click: this.props.actions.pressClear, customClass: "calculator__button--operation calculator__button--full" })
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "calculator__buttons calculator__buttons--right clearfix column small-2" },
-	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "=", click: this.props.actions.pressEqual, customClass: "calculator__button--equal" })
+	                        _react2.default.createElement(_CalculatorButton2.default, { keyVal: "=", click: this.props.actions.pressEqual, customClass: "calculator__button--equal", disableInput: this.props.calculator.disableInput })
 	                    )
 	                )
 	            );
+	        }
+	    }, {
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            window.addEventListener("keydown", this.calculatorKeyboardHandler);
+	        }
+	    }, {
+	        key: "componentWillUnmount",
+	        value: function componentWillUnmount() {
+	            window.removeEventListener("keydown", this.calculatorKeyboardHandler);
 	        }
 	    }]);
 	
 	    return Calculator;
 	}(_react2.default.Component);
 	
+	Calculator.propTypes = {
+	    actions: _react2.default.PropTypes.object.isRequired,
+	    calculator: _react2.default.PropTypes.object.isRequired
+	};
+	
 	exports.default = Calculator;
 
 /***/ },
-/* 209 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23946,7 +24068,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _classnames = __webpack_require__(210);
+	var _classnames = __webpack_require__(212);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -23973,14 +24095,16 @@
 	            var btnProp = {
 	                keyVal: this.props.keyVal,
 	                click: this.props.click || function () {},
-	                className: (0, _classnames2.default)("calculator__button", "button", this.props.customClass)
+	                className: (0, _classnames2.default)("calculator__button", "button", this.props.customClass),
+	                disableInput: this.props.disableInput
 	            };
 	
 	            return _react2.default.createElement(
 	                "button",
 	                { className: btnProp.className,
 	                    type: "button",
-	                    onClick: btnProp.click.bind(null, btnProp.keyVal) },
+	                    onClick: btnProp.click.bind(null, btnProp.keyVal),
+	                    disabled: btnProp.disableInput },
 	                btnProp.keyVal
 	            );
 	        }
@@ -23989,10 +24113,16 @@
 	    return CalculatorButton;
 	}(_react2.default.Component);
 	
+	CalculatorButton.propTypes = {
+	    keyVal: _react2.default.PropTypes.string.isRequired,
+	    click: _react2.default.PropTypes.func,
+	    customClass: _react2.default.PropTypes.string
+	};
+	
 	exports.default = CalculatorButton;
 
 /***/ },
-/* 210 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24046,7 +24176,7 @@
 
 
 /***/ },
-/* 211 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24061,7 +24191,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _classnames = __webpack_require__(210);
+	var _classnames = __webpack_require__(212);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -24121,10 +24251,90 @@
 	    return CalculatorScreen;
 	}(_react2.default.Component);
 	
+	CalculatorScreen.propTypes = {
+	    calculator: _react2.default.PropTypes.object.isRequired
+	};
+	
 	exports.default = CalculatorScreen;
 
 /***/ },
-/* 212 */
+/* 214 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// A lookup object to see which key type is pressed
+	var keyLookup = {
+	    num: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+	    decimal: ["."],
+	    operation: ["+", "-", "*", "/"],
+	    equal: ["=", "Enter"],
+	    toggleSign: ["F9"],
+	    backspace: ["Backspace"],
+	    clear: ["Escape"]
+	};
+	
+	/**
+	 * Keyboard event callback for calculator.
+	 * @param e: Event (keydown).
+	 * @param props: The component's properties.
+	 */
+	function calculatorKeyboard(e, props) {
+	    // Stop any events that may be triggered as a result of button focus (e.g. pressing enter while button is focused from clicking)
+	    e.preventDefault();
+	
+	    var keyChar = e.key;
+	
+	    // If ESC is pressed
+	    if (keyLookup.clear.indexOf(keyChar) > -1) {
+	        props.actions.pressClear();
+	    }
+	
+	    // Only allow input as long the calculator has not run into an error
+	    if (!props.calculator.disableInput) {
+	        // If it is a number key
+	        if (keyLookup.num.indexOf(keyChar) > -1) {
+	            props.actions.pressNum(keyChar);
+	        }
+	
+	        // If it is a decimal key
+	        else if (keyLookup.decimal.indexOf(keyChar) > -1) {
+	                props.actions.pressDecimal();
+	            }
+	
+	            // If it is the F9 key (for toggle sign)
+	            else if (keyLookup.toggleSign.indexOf(keyChar) > -1) {
+	                    props.actions.pressToggleSign();
+	                }
+	
+	                // If it is an operation key
+	                else if (keyLookup.operation.indexOf(keyChar) > -1) {
+	                        // Convert multi/div keys to usage variant
+	                        if (keyChar === "*") keyChar = "×";
+	                        if (keyChar === "/") keyChar = "÷";
+	
+	                        props.actions.pressOperation(keyChar);
+	                    }
+	
+	                    // If equal sign or enter key
+	                    else if (keyLookup.equal.indexOf(keyChar) > -1) {
+	                            props.actions.pressEqual();
+	                        }
+	
+	                        // If backspace key is pressed
+	                        else if (keyLookup.backspace.indexOf(keyChar) > -1) {
+	                                props.actions.pressBackspace();
+	                            }
+	    }
+	}
+	
+	exports.default = calculatorKeyboard;
+
+/***/ },
+/* 215 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24145,21 +24355,21 @@
 	        type: "PRESS_NUM",
 	        num: num
 	    };
-	}
+	};
 	
 	// The backspace key is pressed
 	function pressBackspace() {
 	    return {
 	        type: "PRESS_BACKSPACE"
 	    };
-	}
+	};
 	
 	// The decimal key is pressed
 	function pressDecimal() {
 	    return {
 	        type: "PRESS_DECIMAL"
 	    };
-	}
+	};
 	
 	// An operation key is pressed
 	function pressOperation(operation) {
@@ -24174,21 +24384,432 @@
 	    return {
 	        type: "PRESS_EQUAL"
 	    };
-	}
+	};
 	
 	// Clear button is pressed
 	function pressClear() {
 	    return {
 	        type: "PRESS_CLEAR"
 	    };
-	}
+	};
 	
 	// Sign toggle button is pressed
 	function pressToggleSign() {
 	    return {
 	        type: "PRESS_TOGGLE_SIGN"
 	    };
+	};
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _redux = __webpack_require__(186);
+	
+	var _reactRedux = __webpack_require__(179);
+	
+	var _CommandsList = __webpack_require__(217);
+	
+	var _CommandsList2 = _interopRequireDefault(_CommandsList);
+	
+	var _actionCreators = __webpack_require__(222);
+	
+	var actionCreators = _interopRequireWildcard(_actionCreators);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommandsListContainer = function (_React$Component) {
+	    _inherits(CommandsListContainer, _React$Component);
+	
+	    function CommandsListContainer() {
+	        _classCallCheck(this, CommandsListContainer);
+	
+	        return _possibleConstructorReturn(this, (CommandsListContainer.__proto__ || Object.getPrototypeOf(CommandsListContainer)).apply(this, arguments));
+	    }
+	
+	    _createClass(CommandsListContainer, [{
+	        key: "render",
+	        value: function render() {
+	            var actions = {
+	                pressToggleCommandsList: this.props.pressToggleCommandsList
+	            };
+	
+	            return _react2.default.createElement(_CommandsList2.default, { commandsList: this.props.commandsList,
+	                actions: actions });
+	        }
+	    }]);
+	
+	    return CommandsListContainer;
+	}(_react2.default.Component);
+	
+	/**
+	 * Map state reducers to props.
+	 */
+	
+	
+	function mapStateToProps(state) {
+	    return {
+	        commandsList: state.commandsList
+	    };
 	}
+	
+	/**
+	 * Map dispatch events to props.
+	 */
+	function mapDispatchToProps(dispatch) {
+	    // Bind all action creators to dispatch
+	    return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+	}
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CommandsListContainer);
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(212);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _CommandsListButtonToggle = __webpack_require__(218);
+	
+	var _CommandsListButtonToggle2 = _interopRequireDefault(_CommandsListButtonToggle);
+	
+	var _CommandsListTable = __webpack_require__(219);
+	
+	var _CommandsListTable2 = _interopRequireDefault(_CommandsListTable);
+	
+	var _commandsListKeyboard = __webpack_require__(221);
+	
+	var _commandsListKeyboard2 = _interopRequireDefault(_commandsListKeyboard);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommandsList = function (_React$Component) {
+	    _inherits(CommandsList, _React$Component);
+	
+	    function CommandsList(props) {
+	        _classCallCheck(this, CommandsList);
+	
+	        // Handler for keyboard event listener
+	        var _this = _possibleConstructorReturn(this, (CommandsList.__proto__ || Object.getPrototypeOf(CommandsList)).call(this, props));
+	
+	        _this.commandsListKeyboardHandler = function (e) {
+	            (0, _commandsListKeyboard2.default)(e, _this.props);
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(CommandsList, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: (0, _classnames2.default)("commands-list", { "commands-list--show": this.props.commandsList.showList }) },
+	                _react2.default.createElement(_CommandsListButtonToggle2.default, { click: this.props.actions.pressToggleCommandsList }),
+	                _react2.default.createElement(_CommandsListTable2.default, null)
+	            );
+	        }
+	    }, {
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            window.addEventListener("keydown", this.commandsListKeyboardHandler);
+	        }
+	    }, {
+	        key: "componentWillUnmount",
+	        value: function componentWillUnmount() {
+	            window.removeEventListener("keydown", this.commandsListKeyboardHandler);
+	        }
+	    }]);
+	
+	    return CommandsList;
+	}(_react2.default.Component);
+	
+	exports.default = CommandsList;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommandsListButtonToggle = function (_React$Component) {
+	    _inherits(CommandsListButtonToggle, _React$Component);
+	
+	    function CommandsListButtonToggle() {
+	        _classCallCheck(this, CommandsListButtonToggle);
+	
+	        return _possibleConstructorReturn(this, (CommandsListButtonToggle.__proto__ || Object.getPrototypeOf(CommandsListButtonToggle)).apply(this, arguments));
+	    }
+	
+	    _createClass(CommandsListButtonToggle, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "button",
+	                { type: "button", className: "commands-list__btn-toggle button", onClick: this.props.click },
+	                _react2.default.createElement("span", { className: "commands-list__btn-toggle-icon fa fa-keyboard-o" }),
+	                _react2.default.createElement(
+	                    "span",
+	                    { className: "commands-list__btn-toggle-text" },
+	                    "Keyboard commands"
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CommandsListButtonToggle;
+	}(_react2.default.Component);
+	
+	exports.default = CommandsListButtonToggle;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _CommandsListTableRow = __webpack_require__(220);
+	
+	var _CommandsListTableRow2 = _interopRequireDefault(_CommandsListTableRow);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommandsListTable = function (_React$Component) {
+	    _inherits(CommandsListTable, _React$Component);
+	
+	    function CommandsListTable() {
+	        _classCallCheck(this, CommandsListTable);
+	
+	        return _possibleConstructorReturn(this, (CommandsListTable.__proto__ || Object.getPrototypeOf(CommandsListTable)).apply(this, arguments));
+	    }
+	
+	    _createClass(CommandsListTable, [{
+	        key: "render",
+	        value: function render() {
+	            var keyFuncMap = {
+	                "0-9": "Numbers",
+	                "+": "Addition",
+	                "-": "Subtraction",
+	                "*": "Multiplication",
+	                "/": "Division",
+	                ".": "Decimal point",
+	                "F1": "Show/hide keyboard commands table",
+	                "F9": "Toggle positive/negative sign",
+	                "ENTER / =": "Calculate",
+	                "BACKSPACE": "Backspace",
+	                "ESC": "Clear"
+	            };
+	
+	            var CommandsListTableRowEles = [];
+	
+	            for (var keyChar in keyFuncMap) {
+	                var keyProp = {
+	                    keyChar: keyChar,
+	                    keyFunc: keyFuncMap[keyChar]
+	                };
+	
+	                CommandsListTableRowEles.push(_react2.default.createElement(_CommandsListTableRow2.default, _extends({ key: keyChar }, keyProp)));
+	            }
+	
+	            return _react2.default.createElement(
+	                "table",
+	                { className: "commands-list__table" },
+	                _react2.default.createElement(
+	                    "tbody",
+	                    null,
+	                    CommandsListTableRowEles
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CommandsListTable;
+	}(_react2.default.Component);
+	
+	exports.default = CommandsListTable;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommandsListTableRow = function (_React$Component) {
+	    _inherits(CommandsListTableRow, _React$Component);
+	
+	    function CommandsListTableRow() {
+	        _classCallCheck(this, CommandsListTableRow);
+	
+	        return _possibleConstructorReturn(this, (CommandsListTableRow.__proto__ || Object.getPrototypeOf(CommandsListTableRow)).apply(this, arguments));
+	    }
+	
+	    _createClass(CommandsListTableRow, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "tr",
+	                { className: "commands-list__table-row" },
+	                _react2.default.createElement(
+	                    "td",
+	                    null,
+	                    this.props.keyChar
+	                ),
+	                _react2.default.createElement(
+	                    "td",
+	                    null,
+	                    this.props.keyFunc
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return CommandsListTableRow;
+	}(_react2.default.Component);
+	
+	exports.default = CommandsListTableRow;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// A lookup object to see which key type is pressed
+	var keyLookup = {
+	    commandsList: ["F1"]
+	};
+	
+	/**
+	 * Keyboard event callback for commands list.
+	 * @param e: Event (keydown).
+	 * @param props: The component's properties.
+	 */
+	
+	function commandsListKeyboard(e, props) {
+	    // Stop any events that may be triggered as a result of button focus (e.g. pressing enter while button is focused from clicking)
+	    e.preventDefault();
+	
+	    var keyChar = e.key;
+	
+	    // When "F1" key is pressed
+	    if (keyLookup.commandsList.indexOf(keyChar) > -1) {
+	        props.actions.pressToggleCommandsList();
+	    }
+	}
+	
+	exports.default = commandsListKeyboard;
+
+/***/ },
+/* 222 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.pressToggleCommandsList = pressToggleCommandsList;
+	function pressToggleCommandsList() {
+	    return {
+	        type: "PRESS_TOGGLE_COMMANDS_LIST"
+	    };
+	};
 
 /***/ }
 /******/ ]);
