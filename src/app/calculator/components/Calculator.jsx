@@ -8,8 +8,8 @@ class Calculator extends React.Component {
         super(props);
 
         // Handler for keyboard event listener
-        this.calculatorKeyboardHandler = function(e) {
-            calculatorKeyboard(e, props);
+        this.calculatorKeyboardHandler = (e) => {
+            calculatorKeyboard(e, this.props);
         };
     }
 

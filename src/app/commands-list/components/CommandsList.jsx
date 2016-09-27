@@ -9,8 +9,8 @@ class CommandsList extends React.Component {
         super(props);
 
         // Handler for keyboard event listener
-        this.commandsListKeyboardHandler = function(e) {
-            commandsListKeyboard(e, props);
+        this.commandsListKeyboardHandler = (e) => {
+            commandsListKeyboard(e, this.props);
         };
     }
 
