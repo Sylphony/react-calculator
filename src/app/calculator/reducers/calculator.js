@@ -15,7 +15,7 @@ const INITIAL_STATE = {
  */
 function calculator(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case "PRESS_NUM":
+        case "PRESS_NUM": {
             let hasLeadingZero = checkLeadingZero(state);
 
             // If there is only a zero (which implies leading zero), replace it instead of concatenating with it
@@ -45,9 +45,10 @@ function calculator(state = INITIAL_STATE, action) {
                 inputNum: state.inputNum + action.num,
                 screen: "input"
             };
+        }
 
 
-        case "PRESS_BACKSPACE":
+        case "PRESS_BACKSPACE": {
             // Only allow backspacing on current input
             if (!state.onNextNum) {
                 let newInputNum = state.inputNum.slice(0, state.inputNum.length-1);
@@ -66,9 +67,10 @@ function calculator(state = INITIAL_STATE, action) {
             }
 
             return state;
+        }
 
 
-        case "PRESS_DECIMAL": 
+        case "PRESS_DECIMAL": {
             let hasDecimal = (/\./).test(state.inputNum);
 
             // Only add if no decimal has been placed yet
@@ -82,9 +84,9 @@ function calculator(state = INITIAL_STATE, action) {
             }
 
             return state;
+        }
 
-
-        case "PRESS_TOGGLE_SIGN":
+        case "PRESS_TOGGLE_SIGN": {
             // Conver string display to number
             let theNum = parseFloat(state.inputNum);
 
@@ -108,9 +110,10 @@ function calculator(state = INITIAL_STATE, action) {
 
             // Return original state if zero
             return state;
+        }
 
 
-        case "PRESS_OPERATION":
+        case "PRESS_OPERATION": {
             // Only progress if there is a number already first
             if (state.inputNum) {
                 // If there is no operation clicked yet:
@@ -131,7 +134,7 @@ function calculator(state = INITIAL_STATE, action) {
                 // 1. Save the new operation
                 // 2. Raise the signal for calculator to know user is on next number
                 else if (state.onNextNum && (action.operation !== state.operation)) {
-                     return {
+                    return {
                         ...state,
                         operation: action.operation,
                         onNextNum: true,
@@ -170,9 +173,10 @@ function calculator(state = INITIAL_STATE, action) {
             }
 
             return state;
+        }
 
 
-        case "PRESS_EQUAL":
+        case "PRESS_EQUAL": {
             // If user has already clicked an operation and there exists an inputNum:
             // 1. Calculate the previous operation
             // 2. Store the result
@@ -204,17 +208,20 @@ function calculator(state = INITIAL_STATE, action) {
             }
 
             return state;
+        }
 
 
-        case "PRESS_CLEAR":
+        case "PRESS_CLEAR": {
             return {
                 ...state,
                 ...INITIAL_STATE
             };
+        }
 
 
-        default:
+        default: {
             return state;
+        }
     }
 }
 
