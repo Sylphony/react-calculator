@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/app/**/*.spec.js',
+      'src/app/**/*.spec.jsx'
       // 'src/app/**/*.js',
       // 'src/app/**/*.jsx'
     ],
@@ -36,6 +37,7 @@ module.exports = function(config) {
     },
 
     webpack: {
+        devtool: 'inline-source-map', //just do inline source maps instead of the default
         module: {
             loaders: [
                 {
@@ -43,11 +45,18 @@ module.exports = function(config) {
                     loader: "babel-loader",
                     exclude: /node_modules/,
                     query: {
-                        presets: ["es2015", "react"],
-                        plugins: ["transform-object-rest-spread"]
+                        // presets: ["es2015", "react"],
+                        // plugins: ["transform-object-rest-spread"]
+                        presets: ["airbnb"]
                     }
                 }
             ]
+        },
+        externals: {
+            'cheerio': 'window',
+            'react/addons': true,
+            'react/lib/ExecutionEnvironment': true,
+            'react/lib/ReactContext': true
         }
     },
 
