@@ -16,7 +16,7 @@ function commandsListKeyboard(e, props) {
 
     // When "F1" key is pressed
     if (keyLookup.commandsList.indexOf(keyChar) > -1) {
-        props.actions.pressToggleCommandsList();
+        props.pressToggleCommandsList();
     }
 }
 

@@ -1,10 +1,20 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Calculator from "./../components/Calculator.jsx";
 import * as actionCreators from "./../actions/actionCreators";
+import Calculator from "./../components/Calculator.jsx";
+import calculatorKeyboard from "./functions/calculatorKeyboard";
 
 class CalculatorContainer extends React.Component {
+    constructor() {
+        super();
+
+        // Handler for keyboard event listener
+        this.calculatorKeyboardHandler = (e) => {
+            calculatorKeyboard(e, this.props);
+        };
+    }
+
     render() {
         const actions = {
             pressNum: this.props.pressNum,
@@ -20,6 +30,14 @@ class CalculatorContainer extends React.Component {
             <Calculator calculator={ this.props.calculator }
                         actions={ actions } />
         );
+    }
+
+    componentDidMount() {
+        window.addEventListener("keydown", this.calculatorKeyboardHandler);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.calculatorKeyboardHandler);
     }
 }
 

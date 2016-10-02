@@ -1,10 +1,20 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import CommandsList from "./../components/CommandsList.jsx";
 import * as actionCreators from "./../actions/actionCreators";
+import CommandsList from "./../components/CommandsList.jsx";
+import commandsListKeyboard from "./functions/commandsListKeyboard";
 
 class CommandsListContainer extends React.Component {
+    constructor() {
+        super();
+
+        // Handler for keyboard event listener
+        this.commandsListKeyboardHandler = (e) => {
+            commandsListKeyboard(e, this.props);
+        };
+    }
+
     render() {
         const actions = {
             pressToggleCommandsList: this.props.pressToggleCommandsList
@@ -14,6 +24,14 @@ class CommandsListContainer extends React.Component {
             <CommandsList commandsList={ this.props.commandsList }
                           actions={ actions } />
         );
+    }
+
+    componentDidMount() {
+        window.addEventListener("keydown", this.commandsListKeyboardHandler);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.commandsListKeyboardHandler);
     }
 }
 

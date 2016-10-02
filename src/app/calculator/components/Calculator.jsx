@@ -1,18 +1,8 @@
 import React from "react";
 import CalculatorButton from "./CalculatorButton.jsx";
 import CalculatorScreen from "./CalculatorScreen.jsx";
-import calculatorKeyboard from "./functions/calculatorKeyboard";
 
 class Calculator extends React.Component {
-    constructor(props) {
-        super(props);
-
-        // Handler for keyboard event listener
-        this.calculatorKeyboardHandler = (e) => {
-            calculatorKeyboard(e, this.props);
-        };
-    }
-
     render() {
         return (
             <div className="calculator">
@@ -50,16 +40,7 @@ class Calculator extends React.Component {
             </div>
         ); 
     }
-
-    componentDidMount() {
-        window.addEventListener("keydown", this.calculatorKeyboardHandler);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("keydown", this.calculatorKeyboardHandler);
-    }
 }
-
 
 Calculator.propTypes = {
     actions: React.PropTypes.object.isRequired,

@@ -22,24 +22,24 @@ function calculatorKeyboard(e, props) {
 
     // If ESC is pressed
     if (keyLookup.clear.indexOf(keyChar) > -1) {
-        props.actions.pressClear();
+        props.pressClear();
     }
 
     // Only allow input as long the calculator has not run into an error
     if (!props.calculator.disableInput) {
         // If it is a number key
         if (keyLookup.num.indexOf(keyChar) > -1) {
-            props.actions.pressNum(keyChar);
+            props.pressNum(keyChar);
         }
 
         // If it is a decimal key
         else if (keyLookup.decimal.indexOf(keyChar) > -1) {
-            props.actions.pressDecimal();
+            props.pressDecimal();
         }
 
         // If it is the F9 key (for toggle sign)
         else if (keyLookup.toggleSign.indexOf(keyChar) > -1) {
-            props.actions.pressToggleSign();
+            props.pressToggleSign();
         }
 
         // If it is an operation key
@@ -48,17 +48,17 @@ function calculatorKeyboard(e, props) {
             if (keyChar === "*") keyChar = "×";
             if (keyChar === "/") keyChar = "÷";
 
-            props.actions.pressOperation(keyChar);
+            props.pressOperation(keyChar);
         }
 
         // If equal sign or enter key
         else if (keyLookup.equal.indexOf(keyChar) > -1) {
-            props.actions.pressEqual();
+            props.pressEqual();
         }
 
         // If backspace key is pressed
         else if (keyLookup.backspace.indexOf(keyChar) > -1) {
-            props.actions.pressBackspace();
+            props.pressBackspace();
         }
     }
 }
