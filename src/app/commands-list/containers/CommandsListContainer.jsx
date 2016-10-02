@@ -16,13 +16,8 @@ class CommandsListContainer extends React.Component {
     }
 
     render() {
-        const actions = {
-            pressToggleCommandsList: this.props.pressToggleCommandsList
-        };
-
         return (
-            <CommandsList commandsList={ this.props.commandsList }
-                          actions={ actions } />
+            <CommandsList { ...this.props } />
         );
     }
 

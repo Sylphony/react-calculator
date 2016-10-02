@@ -7,7 +7,7 @@ class CommandsList extends React.Component {
     render() {
         return (
             <div className={ classNames("commands-list", { "commands-list--show": this.props.commandsList.showList }) }>
-                <CommandsListButtonToggle click={ this.props.actions.pressToggleCommandsList } />
+                <CommandsListButtonToggle click={ this.props.pressToggleCommandsList } />
 
                 <CommandsListTable />
             </div>
