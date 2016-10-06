@@ -15,4 +15,9 @@ class CommandsList extends React.Component {
     }
 }
 
+CommandsList.propTypes = {
+    commandsList: React.PropTypes.object.isRequired,
+    pressToggleCommandsList: React.PropTypes.func.isRequired
+};
+
 export default CommandsList;

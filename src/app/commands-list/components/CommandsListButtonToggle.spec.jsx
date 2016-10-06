@@ -1,14 +1,12 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
-import CommandsListButtonToggle from "./CommandsListButtonToggle.jsx";
 import { shallow } from "enzyme";
+import CommandsListButtonToggle from "./CommandsListButtonToggle.jsx";
 
 describe("CommandsListButtonToggle component", function() {
     beforeEach(function() {
         let mockEvents = {
-            clickFunc: function() {
-                this.counter++;
-            }
+            clickFunc: function() {}
         };
 
         // Watch over the click function for later simulation calls
@@ -40,6 +38,8 @@ describe("CommandsListButtonToggle component", function() {
     it("has a working click event on button", function() {
         let btnEle = this.wrapper.find(".commands-list__btn-toggle");
 
+        expect(btnEle.prop("onClick")).not.toBe("undefined");
+        
         btnEle.simulate("click");
         expect(btnEle.prop("onClick")).toHaveBeenCalled();
     });
