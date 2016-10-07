@@ -15,10 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/app/**/*.spec.js',
-      'src/app/**/*.spec.jsx'
-      // 'src/app/**/*.js',
-      // 'src/app/**/*.jsx'
+      'entry-test.js'
     ],
 
 
@@ -32,36 +29,36 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js': ['webpack'],
-      'src/**/*.jsx': ['webpack']
+      'entry-test.js': ['webpack']
     },
 
     webpack: {
-        devtool: 'inline-source-map', //just do inline source maps instead of the default
-        module: {
-            loaders: [
-                {
-                    test: /\.jsx?$/,
-                    loader: "babel-loader",
-                    exclude: /node_modules/,
-                    query: {
-                        // presets: ["es2015", "react"],
-                        // plugins: ["transform-object-rest-spread"]
-                        presets: ["airbnb"]
-                    }
-                }
-            ]
-        },
-        externals: {
-            'cheerio': 'window',
-            'react/addons': true,
-            'react/lib/ExecutionEnvironment': true,
-            'react/lib/ReactContext': true
-        }
+      devtool: 'inline-source-map', //just do inline source maps instead of the default
+      cache: true,
+      module: {
+          loaders: [
+              {
+                  test: /\.jsx?$/,
+                  loader: "babel-loader",
+                  exclude: /node_modules/,
+                  query: {
+                      // presets: ["es2015", "react"],
+                      // plugins: ["transform-object-rest-spread"]
+                      presets: ["airbnb"]
+                  }
+              }
+          ]
+      },
+      externals: {
+          'cheerio': 'window',
+          'react/addons': true,
+          'react/lib/ExecutionEnvironment': true,
+          'react/lib/ReactContext': true
+      }
     },
 
     webpackMiddleware: {
-        stats: 'errors-only'
+      stats: 'errors-only'
     },
 
 
