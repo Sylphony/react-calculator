@@ -1,7 +1,7 @@
 {
   "name": "react-calculator",
   "description": "A calculator with React and Redux for learning purposes.",
-  "main": "index.js",
+  "main": "entry.js",
   "authors": [
     "Sylphony"
   ],
@@ -20,5 +20,10 @@
   ],
   "dependencies": {
     "foundation": "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.css"
+  },
+  "version": "0.0.0",
+  "repository": {
+    "url": "git+https://github.com/Sylphony/react-calculator.git",
+    "type": "git"
   }
 }

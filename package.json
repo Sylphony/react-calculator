@@ -2,7 +2,7 @@
   "name": "react-calculator",
   "version": "0.0.0",
   "description": "A calculator with React and Redux for learning purposes.",
-  "main": "index.js",
+  "main": "entry.js",
   "scripts": {
     "test": "karma start",
     "eslint": "eslint ./src/app/**/*.js ./src/app/**/*.jsx",
@@ -12,8 +12,8 @@
     "build:prod": "webpack --config webpack-prod.config.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sylphony/react-calculator.git"
+    "url": "git+https://github.com/Sylphony/react-calculator.git",
+    "type": "git"
   },
   "author": "Sylphony",
   "license": "ISC",
