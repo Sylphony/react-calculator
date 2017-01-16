@@ -3,9 +3,9 @@
   "description": "A calculator with React and Redux for learning purposes.",
   "main": "entry.js",
   "authors": [
-    "Sylphony"
+    "Sylphony (DZ)"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/Sylphony/react-calculator",
   "moduleType": [
     "es6"

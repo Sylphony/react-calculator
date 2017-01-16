@@ -15,8 +15,8 @@
     "url": "git+https://github.com/Sylphony/react-calculator.git",
     "type": "git"
   },
-  "author": "Sylphony",
-  "license": "ISC",
+  "author": "Sylphony (DZ)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Sylphony/react-calculator/issues"
   },
